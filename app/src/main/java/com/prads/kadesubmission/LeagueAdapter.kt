@@ -1,11 +1,14 @@
 package com.prads.kadesubmission
 
 import android.graphics.Movie
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.prads.kadesubmission.data.League
@@ -35,24 +38,20 @@ class LeagueAdapter (private val listener: (League) -> Unit) : RecyclerView.Adap
         LayoutContainer {
 
         private  val leagueLogo: ImageView = containerView.find(R.id.item_league_logo)
-        private val leagueName: TextView = containerView.find(R.id.item_league_name)
+        private  val leagueLogoDetail: ImageView = containerView.find(R.id.item_league_logo)
 
         fun bindItem(item: League, listener: (League) -> Unit) {
+
             Glide.with(itemView.context)
                 .load(item.logo)
                 .into(leagueLogo)
 
-            leagueName.text = item.name
+            containerView.find<TextView>(R.id.item_league_name).text = item.name
 
-//            containerView.movieCardContainer.setOnClickListener {
-//                listener(item)
-//            }
-//            containerView.movieImage.apply {
-//                Glide.with(itemView).load("$IMAGE_URL${item.moviePoster}").into(this)
-//            }
-//            containerView.movieTextTitle.text = item.movieTitle
-//            containerView.movieTextOverview.text = item.movieOverview
-//            containerView.movieTextReleaseDate.text = item.movieReleaseDate
+            containerView.findViewById<CardView>(R.id.item_league_card).setOnClickListener {
+                listener(item)
+            }
+
         }
 
 

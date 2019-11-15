@@ -3,7 +3,12 @@
 
     <item name="item_league_logo" type="id"/>
     <item name="item_league_name" type="id"/>
-    <item name="rv_list_league" type="id"/>
+    <item name="item_league_card" type="id"/>
+    <item name="rv_list_league" type="id"/>detail_league_logo
+    <item name="detail_league_logo" type="id"/>
+    <item name="detail_league_name" type="id"/>
+    <item name="detail_league_description" type="id"/>
+
 
 
 </resources>

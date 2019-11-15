@@ -9,4 +9,7 @@ abstract class ActivityBuildersModule {
     @ContributesAndroidInjector
     internal abstract fun contributeMainActivity(): MainActivity
 
+    @ContributesAndroidInjector
+    internal abstract fun contributeLeagueDetailActivity(): LeagueDetailActivity
+
 }
