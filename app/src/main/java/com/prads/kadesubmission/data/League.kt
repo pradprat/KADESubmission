@@ -6,4 +6,7 @@ data class League(
     var id:Int,
     var description:String
 ){
+    companion object {
+        const val LEAGUE_ID = "LEAGUE ID"
+    }
 }
