@@ -13,8 +13,7 @@ class ViewModelModule {
     @Provides
     @IntoMap
     @ViewModelKey(LeagueViewModel::class)
-    fun provideTvShowViewModel(dummyData: DummyData): ViewModel =
-        LeagueViewModel(dummyData)
+    fun provideTvShowViewModel(LeagueRepository: LeagueRepository): ViewModel = LeagueViewModel(LeagueRepository)
 
     @Provides
     fun provideViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory =

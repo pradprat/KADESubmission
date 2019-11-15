@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import dagger.android.support.DaggerAppCompatActivity
@@ -22,7 +23,9 @@ class MainActivity : DaggerAppCompatActivity() {
 
         leagueViewModel = ViewModelProviders.of(this,viewModelFactory).get(LeagueViewModel::class.java)
 
-        Log.d("---",leagueViewModel.loadLeagues()?.size.toString())
+        leagueViewModel.loadLeagues().observe(this, Observer {
+            Log.d("---",it.size.toString())
+        })
 
         MainActivityUI().setContentView(this)
     }
