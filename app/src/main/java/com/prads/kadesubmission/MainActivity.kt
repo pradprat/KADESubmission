@@ -12,13 +12,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.prads.kadesubmission.data.League
-import com.prads.kadesubmission.data.League.Companion.LEAGUE_ID
+import com.prads.kadesubmission.data.League.CREATOR.TAG_LEAGUE
 import dagger.android.support.DaggerAppCompatActivity
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import javax.inject.Inject
 
-class MainActivity : DaggerAppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() , AnkoLogger{
+
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -41,13 +42,15 @@ class MainActivity : DaggerAppCompatActivity() {
 
         leagueAdapter = LeagueAdapter {
             Intent(this, LeagueDetailActivity::class.java).run {
-                this.putExtra(LEAGUE_ID, it.id)
+                this.putExtra(TAG_LEAGUE, it)
+                toast("kamu memilih "+it.name)
                 startActivity(this)
             }
         }
 
         leagueViewModel.loadLeagues().observe(this, Observer {
             leagueAdapter.addData(it)
+            info("data observed")
         })
 
         rvListLeague = mainUI.rvLeague
@@ -55,6 +58,7 @@ class MainActivity : DaggerAppCompatActivity() {
         rvListLeague.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = leagueAdapter
+            info("recyclerview created")
         }
 
 

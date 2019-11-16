@@ -14,6 +14,7 @@ class MainActivityUI : AnkoComponent<MainActivity> {
                 id = R.id.rv_list_league
                 lparams(width = matchParent, height =  matchParent)
             }
+
         }
     }
 }

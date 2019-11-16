@@ -49,6 +49,7 @@ class LeagueAdapter (private val listener: (League) -> Unit) : RecyclerView.Adap
             containerView.find<TextView>(R.id.item_league_name).text = item.name
 
             containerView.findViewById<CardView>(R.id.item_league_card).setOnClickListener {
+
                 listener(item)
             }
 
