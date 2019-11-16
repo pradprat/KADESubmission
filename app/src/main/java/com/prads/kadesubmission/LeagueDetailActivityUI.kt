@@ -15,24 +15,30 @@ class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
         return with(ui){
             verticalLayout(){
                 lparams(width = matchParent, height = wrapContent)
-                imageView {
-                    id = R.id.detail_league_logo
-                }.lparams {
-                    height = dip(75)
-                    width = dip(75)
-                    margin = dip(16)
-                }
-                textView {
-                    id = R.id.detail_league_name
-                    textSize = 16f
-                }.lparams {
-                    margin = dip(16)
-                }
-                textView {
-                    id = R.id.detail_league_description
-                    textSize = 16f
-                }.lparams {
-                    margin = dip(16)
+                scrollView {
+                    verticalLayout(){
+                        lparams(width = matchParent, height = wrapContent)
+                        imageView {
+                            id = R.id.detail_league_logo
+                        }.lparams {
+                            height = dip(75)
+                            width = dip(75)
+                            margin = dip(16)
+                        }
+                        textView {
+                            id = R.id.detail_league_name
+                            textSize = 16f
+                        }.lparams {
+                            margin = dip(16)
+                        }
+                        textView {
+                            id = R.id.detail_league_description
+                            textSize = 16f
+                        }.lparams {
+                            margin = dip(16)
+                        }
+                    }
+
                 }
             }
         }
