@@ -1,26 +1,22 @@
 package com.prads.kadesubmission
 
-import android.graphics.Movie
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.prads.kadesubmission.data.League
+import com.prads.kadesubmission.data.LeagueDummy
 import kotlinx.android.extensions.LayoutContainer
 import org.jetbrains.anko.*
 
-class LeagueAdapter (private val listener: (League) -> Unit) : RecyclerView.Adapter<LeagueAdapter.LeagueViewHolder>(){
+class LeagueAdapter (private val listener: (LeagueDummy) -> Unit) : RecyclerView.Adapter<LeagueAdapter.LeagueViewHolder>(){
 
-    private val leagues = mutableListOf<League>()
+    private val leagues = mutableListOf<LeagueDummy>()
 
-    fun addData(leagues:List<League>){
-        leagues.let{
+    fun addData(leagueDummies:List<LeagueDummy>){
+        leagueDummies.let{
             this.leagues.addAll(it)
         }
         notifyDataSetChanged()
@@ -40,7 +36,7 @@ class LeagueAdapter (private val listener: (League) -> Unit) : RecyclerView.Adap
         private  val leagueLogo: ImageView = containerView.find(R.id.item_league_logo)
         private  val leagueLogoDetail: ImageView = containerView.find(R.id.item_league_logo)
 
-        fun bindItem(item: League, listener: (League) -> Unit) {
+        fun bindItem(item: LeagueDummy, listener: (LeagueDummy) -> Unit) {
 
             Glide.with(itemView.context)
                 .load(item.logo)
