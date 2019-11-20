@@ -1,5 +1,9 @@
 package com.prads.kadesubmission.data
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class League(
     val dateFirstEvent: String,
     val idCup: String,
@@ -44,4 +48,4 @@ data class League(
     val strTwitter: String,
     val strWebsite: String,
     val strYoutube: String
-)
+) : Parcelable

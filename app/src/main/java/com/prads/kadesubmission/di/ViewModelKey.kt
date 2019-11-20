@@ -1,4 +1,4 @@
-package com.prads.kadesubmission
+package com.prads.kadesubmission.di
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

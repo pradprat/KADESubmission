@@ -1,6 +1,7 @@
 package com.prads.kadesubmission
 
 import android.annotation.SuppressLint
+import com.prads.kadesubmission.di.component.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 

@@ -1,4 +1,4 @@
-package com.prads.kadesubmission
+package com.prads.kadesubmission.ui
 
 import android.view.View
 import android.view.ViewGroup
@@ -7,7 +7,9 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.LeagueDummy
+import com.prads.kadesubmission.ui.layout.LeagueItemUI
 import kotlinx.android.extensions.LayoutContainer
 import org.jetbrains.anko.*
 
@@ -23,7 +25,11 @@ class LeagueAdapter (private val listener: (LeagueDummy) -> Unit) : RecyclerView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeagueViewHolder {
-        return LeagueViewHolder(LeagueItemUI().createView(AnkoContext.create(parent.context, parent)))
+        return LeagueViewHolder(
+            LeagueItemUI().createView(
+                AnkoContext.create(parent.context, parent)
+            )
+        )
     }
     override fun getItemCount(): Int = leagues.size
     override fun onBindViewHolder(holder: LeagueViewHolder, position: Int) {

@@ -1,44 +1,47 @@
-package com.prads.kadesubmission
+package com.prads.kadesubmission.ui.layout
 
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.cardview.widget.CardView
+import com.prads.kadesubmission.R
 import org.jetbrains.anko.*
 import org.jetbrains.anko.cardview.v7.cardView
 
-class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
+//    Kita akan membuat layoutnya item di dalam adapter, menggunakan anko
+class LeagueItemUI : AnkoComponent<ViewGroup> {
 
-
-
-    override fun createView(ui: AnkoContext<LeagueDetailActivity>): View {
+    lateinit var itemCardLeague:CardView
+    override fun createView(ui: AnkoContext<ViewGroup>): View {
         return with(ui){
             verticalLayout(){
                 lparams(width = matchParent, height = wrapContent)
-                scrollView {
+                paddingHorizontal = dip(8)
+                paddingVertical = dip(4)
+                orientation = LinearLayout.HORIZONTAL
+                itemCardLeague=cardView {
+                    id = R.id.item_league_card
                     verticalLayout(){
-                        lparams(width = matchParent, height = wrapContent)
                         imageView {
-                            id = R.id.detail_league_logo
+                            id = R.id.item_league_logo
                         }.lparams {
                             height = dip(75)
                             width = dip(75)
                             margin = dip(16)
                         }
+
                         textView {
-                            id = R.id.detail_league_name
-                            textSize = 16f
-                        }.lparams {
-                            margin = dip(16)
-                        }
-                        textView {
-                            id = R.id.detail_league_description
+                            id = R.id.item_league_name
                             textSize = 16f
                         }.lparams {
                             margin = dip(16)
                         }
                     }
-
+                }.lparams(){
+                    width = matchParent
+                    height = wrapContent
+                    verticalMargin = dip(2)
+                    horizontalMargin = dip(2)
                 }
             }
         }

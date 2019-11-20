@@ -7,7 +7,19 @@
     <item name="rv_list_league" type="id"/>detail_league_logo
     <item name="detail_league_logo" type="id"/>
     <item name="detail_league_name" type="id"/>
+    <item name="drawer_layout" type="id"/>
+    <item name="nav_view" type="id"/>
+    <item name="viewpager" type="id"/>
+    <item name="tabs" type="id"/>
+    <item name="toolbar" type="id"/>
+    <item name="appbar" type="id"/>
+    <item name="main_content" type="id"/>
     <item name="detail_league_description" type="id"/>
+    <item name="constraintLayout" type="id"/>
+    <item name="section_label" type="id"/>
+    <item name="view_pager" type="id"/>
+    <item name="rv_list_events" type="id"/>
+
 
 
 

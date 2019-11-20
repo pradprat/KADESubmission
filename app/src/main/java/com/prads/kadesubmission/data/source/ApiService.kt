@@ -6,19 +6,19 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface Webservice {
+interface ApiService {
     @GET("lookupleague.php")
     fun getLeagueById(@Query("id") leagueId:String): Call<LeagueResponse>
 
     @GET("eventsnextleague.php")
     fun getNextEvents(@Query("id") leagueId:String): Call<EventResponse>
 
-    @GET("eventspastleague.php?id={idLeague}")
+    @GET("eventspastleague.php")
     fun getPastEvents(@Query("id") leagueId:String): Call<EventResponse>
 
-    @GET("lookupevent.php?id={idEvent}")
+    @GET("lookupevent.php")
     fun getEventById(@Query("id") eventId:String): Call<EventResponse>
 
-    @GET("searchevents.php?e={query}")
+    @GET("searchevents.php")
     fun getEventByName(@Query("e") eventName:String): Call<EventResponse>
 }

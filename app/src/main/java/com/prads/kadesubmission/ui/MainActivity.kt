@@ -1,4 +1,4 @@
-package com.prads.kadesubmission
+package com.prads.kadesubmission.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.prads.kadesubmission.data.LeagueDummy
+import com.prads.kadesubmission.ui.layout.MainActivityUI
+import com.prads.kadesubmission.ui.tabs.LeagueDetailActivity
 import dagger.android.support.DaggerAppCompatActivity
 import org.jetbrains.anko.*
 import javax.inject.Inject
@@ -17,12 +18,9 @@ class MainActivity : DaggerAppCompatActivity() , AnkoLogger{
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    lateinit var leagueDummies:List<LeagueDummy>
+    private lateinit var leagueViewModel: LeagueViewModel
 
     lateinit var rvListLeague:RecyclerView
-
-    private lateinit var leagueViewModel:LeagueViewModel
 
     lateinit var leagueAdapter: LeagueAdapter
 
@@ -37,7 +35,7 @@ class MainActivity : DaggerAppCompatActivity() , AnkoLogger{
         leagueAdapter = LeagueAdapter {
             Intent(this, LeagueDetailActivity::class.java).run {
                 this.putExtra("TAG_LEAGUE", it)
-                toast("kamu memilih "+it.name)
+                toast("kamu memilih " + it.name)
                 startActivity(this)
             }
         }

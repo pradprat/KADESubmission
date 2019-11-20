@@ -1,6 +1,8 @@
-package com.prads.kadesubmission
+package com.prads.kadesubmission.di.component
 
 import android.app.Application
+import com.prads.kadesubmission.BaseApplication
+import com.prads.kadesubmission.di.modules.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -11,6 +13,8 @@ import dagger.android.support.AndroidSupportInjectionModule
         AndroidSupportInjectionModule::class,
         ActivityBuildersModule::class,
         AppModule::class,
+        ViewModelFactoryModule::class,
+        ApiModule::class,
         ViewModelModule::class
     ]
 )

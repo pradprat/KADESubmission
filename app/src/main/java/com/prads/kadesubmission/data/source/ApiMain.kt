@@ -7,8 +7,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-class ApiMain : Application() {
+class ApiMain @Inject constructor() : Application(){
     private val client = OkHttpClient().newBuilder()
             .addInterceptor(HttpLoggingInterceptor().apply {
                 level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -17,9 +18,9 @@ class ApiMain : Application() {
             .writeTimeout(30, TimeUnit.SECONDS)
             .build()
     private val retrofit = Retrofit.Builder()
-            .baseUrl("https://www.thesportsdb.com/api/v1/json/1")
+            .baseUrl("https://www.thesportsdb.com/api/v1/json/1/")
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    val services: Webservice = retrofit.create(Webservice::class.java)
+    val services: ApiService = retrofit.create(ApiService::class.java)
 }
