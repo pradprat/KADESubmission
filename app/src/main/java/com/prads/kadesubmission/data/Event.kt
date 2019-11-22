@@ -58,5 +58,7 @@ data class Event(
     val strTweet1: Any,
     val strTweet2: Any,
     val strTweet3: Any,
-    val strVideo: Any
+    val strVideo: Any,
+    var teamHome:Team,
+    var teamAway:Team
 )

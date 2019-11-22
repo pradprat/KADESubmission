@@ -19,6 +19,16 @@
     <item name="section_label" type="id"/>
     <item name="view_pager" type="id"/>
     <item name="rv_list_events" type="id"/>
+    <item name="item_event_date" type="id"/>
+    <item name="item_event_time" type="id"/>
+    <item name="event_divider" type="id"/>
+    <item name="item_score_home" type="id"/>
+    <item name="item_score_away" type="id"/>
+    <item name="item_event_logo_home" type="id"/>
+    <item name="item_event_name_home" type="id"/>
+    <item name="item_event_logo_away" type="id"/>
+    <item name="item_event_name_away" type="id"/>
+    <item name="item_event_card" type="id"/>
 
 
 

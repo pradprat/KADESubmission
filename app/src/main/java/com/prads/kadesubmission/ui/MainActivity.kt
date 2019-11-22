@@ -32,6 +32,12 @@ class MainActivity : DaggerAppCompatActivity() , AnkoLogger{
 
         leagueViewModel = ViewModelProviders.of(this,viewModelFactory).get(LeagueViewModel::class.java)
 
+
+        leagueViewModel.loadLeagues().observe(this, Observer {
+            leagueAdapter.addData(it)
+            info("data observed")
+        })
+
         leagueAdapter = LeagueAdapter {
             Intent(this, LeagueDetailActivity::class.java).run {
                 this.putExtra("TAG_LEAGUE", it)
@@ -39,11 +45,6 @@ class MainActivity : DaggerAppCompatActivity() , AnkoLogger{
                 startActivity(this)
             }
         }
-
-        leagueViewModel.loadLeagues().observe(this, Observer {
-            leagueAdapter.addData(it)
-            info("data observed")
-        })
 
         rvListLeague = mainUI.rvLeague
 
