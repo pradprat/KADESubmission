@@ -1,8 +1,6 @@
 package com.prads.kadesubmission.ui.tabs
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,16 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.Event
-import com.prads.kadesubmission.data.League
 import com.prads.kadesubmission.data.LeagueDummy
 import com.prads.kadesubmission.ui.EventAdapter
-import com.prads.kadesubmission.ui.LeagueAdapter
 import dagger.android.support.DaggerFragment
-import okhttp3.internal.notify
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.UI
-import org.jetbrains.anko.support.v4.find
 import javax.inject.Inject
 
 /**
@@ -64,15 +58,14 @@ class EventFragment : DaggerFragment() {
                 id = R.id.constraintLayout
                 textView {
                     id = R.id.section_label
-                    text="ngnetotoadkljasd"
                 }
                 rvEvent = recyclerView(){
                     id = R.id.rv_list_events
-                }
+                }.lparams(width = matchParent)
             }
         }.view
         val textView: TextView = root.findViewById(R.id.section_label)
-        eventViewModel.loadLeagues(league.id).observe(this.viewLifecycleOwner, Observer<List<Event>> {
+        eventViewModel.loadEvents(league.id).observe(this.viewLifecycleOwner, Observer<List<Event>> {
 //            textView.text = it
 //            Log.d("---",it.toString())
             eventAdapter.addData(it)

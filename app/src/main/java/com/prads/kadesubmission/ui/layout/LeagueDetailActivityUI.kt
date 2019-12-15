@@ -13,8 +13,6 @@ import org.jetbrains.anko.support.v4.viewPager
 class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
 
     lateinit var ivToolbar : ImageView
-
-
     override fun createView(ui: AnkoContext<LeagueDetailActivity>): View {
         return with(ui){
             coordinatorLayout {
@@ -22,11 +20,9 @@ class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
                 themedAppBarLayout(R.style.AppTheme_AppBarOverlay) {
                     textView {
                         id = R.id.title
-                        gravity = Gravity.CENTER
-                        minimumHeight = dimenAttr(R.attr.actionBarSize)
-                        padding = R.dimen.appbar_padding
-                        text = resources.getString(R.string.app_name)
-                        textAppearance = R.style.TextAppearance_AppCompat_Title
+                        textAlignment = View.TEXT_ALIGNMENT_CENTER
+                        padding = dip(8)
+                        text = "asdasd"
                     }
                     tabLayout {
                         id = R.id.tabs
@@ -35,7 +31,7 @@ class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
                 }.lparams(width = matchParent)
                 viewPager {
                     id = R.id.view_pager
-                }.lparams(width = matchParent, height = matchParent) {
+                }.lparams(width = matchParent, height = wrapContent) {
                     behavior = Class.forName(resources.getString(R.string.appbar_scrolling_view_behavior)).newInstance() as CoordinatorLayout.Behavior<*>?
                 }
             }

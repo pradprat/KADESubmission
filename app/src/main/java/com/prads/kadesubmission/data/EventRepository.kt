@@ -29,32 +29,6 @@ class EventRepository @Inject constructor(private var service: ApiService) {
                 if (response.isSuccessful){
                     if (response.body()!==null){
                         events.addAll(response.body()!!.events)
-                        for (i in 0 until events.size-1){
-                            service.getTeamById(events[i].idHomeTeam).enqueue(object : Callback<TeamResponse> {
-                                override fun onFailure(call: Call<TeamResponse>, t: Throwable) {
-                                }
-                                override fun onResponse(call: Call<TeamResponse>, response: Response<TeamResponse>) {
-                                    if (response.isSuccessful){
-                                        if (response.body()!==null){
-                                            events[i].teamHome = response.body()!!.teams[0]
-                                            Log.d("---","events["+i+"].teamHome "+events[i].teamHome)
-                                        }
-                                    }
-                                }
-                            })
-                            service.getTeamById(events[i].idAwayTeam).enqueue(object : Callback<TeamResponse> {
-                                override fun onFailure(call: Call<TeamResponse>, t: Throwable) {
-                                }
-                                override fun onResponse(call: Call<TeamResponse>, response: Response<TeamResponse>) {
-                                    if (response.isSuccessful){
-                                        if (response.body()!==null){
-                                            events[i].teamAway = response.body()!!.teams[0]
-                                            Log.d("---","events["+i+"].teamHome "+events[i].teamHome)
-                                        }
-                                    }
-                                }
-                            })
-                        }
                         liveDataEvents.postValue(events)
                     }
                 }
@@ -72,30 +46,6 @@ class EventRepository @Inject constructor(private var service: ApiService) {
                 if (response.isSuccessful){
                     if (response.body()!==null){
                         events.addAll(response.body()!!.events)
-                        for (i in 0 until events.size-1){
-                            service.getTeamById(events[i].idHomeTeam).enqueue(object : Callback<TeamResponse> {
-                                override fun onFailure(call: Call<TeamResponse>, t: Throwable) {
-                                }
-                                override fun onResponse(call: Call<TeamResponse>, response: Response<TeamResponse>) {
-                                    if (response.isSuccessful){
-                                        if (response.body()!==null){
-                                            events[i].teamHome = response.body()!!.teams[0]
-                                        }
-                                    }
-                                }
-                            })
-                            service.getTeamById(events[i].idAwayTeam).enqueue(object : Callback<TeamResponse> {
-                                override fun onFailure(call: Call<TeamResponse>, t: Throwable) {
-                                }
-                                override fun onResponse(call: Call<TeamResponse>, response: Response<TeamResponse>) {
-                                    if (response.isSuccessful){
-                                        if (response.body()!==null){
-                                            events[i].teamAway = response.body()!!.teams[0]
-                                        }
-                                    }
-                                }
-                            })
-                        }
                         liveDataEvents.postValue(events)
                     }
                 }

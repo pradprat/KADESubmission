@@ -47,22 +47,22 @@ class EventAdapter (private val listener: (Event) -> (Unit)):
         private  val event_divider: TextView = containerView.find(id = R.id.event_divider)
         private  val item_score_home: TextView = containerView.find(id = R.id.item_score_home)
         private  val item_score_away: TextView = containerView.find(id = R.id.item_score_away)
-        private  val item_event_logo_home: ImageView = containerView.find(id = R.id.item_event_logo_home)
+//        private  val item_event_logo_home: ImageView = containerView.find(id = R.id.item_event_logo_home)
         private  val item_event_name_home: TextView = containerView.find(id = R.id.item_event_name_home)
-        private  val item_event_logo_away: ImageView = containerView.find(id = R.id.item_event_logo_away)
+//        private  val item_event_logo_away: ImageView = containerView.find(id = R.id.item_event_logo_away)
         private  val item_event_name_away: TextView = containerView.find(id = R.id.item_event_name_away)
 
         fun bindItem(item: Event, listener: (Event) -> Unit) {
-            if (item.teamHome.strTeamBadge!=null){
-                Glide.with(itemView.context)
-                    .load(item.teamHome.strTeamBadge)
-                    .into(item_event_logo_home)
-            }
-            if (item.teamHome.strTeamBadge!=null){
-            Glide.with(itemView.context)
-                .load(item.teamAway.strTeamBadge)
-                .into(item_event_logo_away)
-            }
+//            if (item.teamHome.strTeamBadge!=null){
+//                Glide.with(itemView.context)
+//                    .load(item.teamHome.strTeamBadge)
+//                    .into(item_event_logo_home)
+//            }
+//            if (item.teamHome.strTeamBadge!=null){
+//            Glide.with(itemView.context)
+//                .load(item.teamAway.strTeamBadge)
+//                .into(item_event_logo_away)
+//            }
             item_event_date.text = item.dateEvent
             item_event_time.text = item.strTime
             item_score_home.text = item.intHomeScore

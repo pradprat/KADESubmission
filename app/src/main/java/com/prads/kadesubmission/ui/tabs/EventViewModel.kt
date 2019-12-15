@@ -9,7 +9,7 @@ class EventViewModel constructor(private val eventRepository: EventRepository) :
 
     private val _index = MutableLiveData<Int>()
 
-    fun loadLeagues(league_id:String) : MutableLiveData<List<Event>> = eventRepository.getAllEvents(
+    fun loadEvents(league_id:String) : MutableLiveData<List<Event>> = eventRepository.getAllEvents(
         _index.value!!,league_id)
 
     fun setIndex(index: Int) {
