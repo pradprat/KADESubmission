@@ -4,6 +4,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import com.google.android.material.internal.ForegroundLinearLayout
 import com.prads.kadesubmission.R
 import com.prads.kadesubmission.ui.tabs.LeagueDetailActivity
 import org.jetbrains.anko.*
@@ -18,11 +19,27 @@ class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
             coordinatorLayout {
                 //tools:context = .ui.tabs.LeagueDetailActivity //not support attribute
                 themedAppBarLayout(R.style.AppTheme_AppBarOverlay) {
+                    imageView {
+                        id = R.id.title
+                        padding = dip(16)
+                        imageResource = R.drawable.american_mayor_league
+                        textAlignment = View.TEXT_ALIGNMENT_CENTER
+                    }.lparams(){
+                        height = dip(100)
+                        width = dip(100)
+                        gravity = Gravity.CENTER
+                    }
                     textView {
                         id = R.id.title
                         textAlignment = View.TEXT_ALIGNMENT_CENTER
-                        padding = dip(8)
-                        text = "asdasd"
+                        padding = dip(16)
+                        text = "LEAGUE INI"
+                    }
+                    textView {
+                        id = R.id.title
+                        textAlignment = View.TEXT_ALIGNMENT_CENTER
+                        padding = dip(16)
+                        text = "Description Description Description Description Description Description Description Description Description "
                     }
                     tabLayout {
                         id = R.id.tabs
