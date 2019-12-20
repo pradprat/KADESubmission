@@ -18,7 +18,7 @@ interface ApiService {
     fun getPastEvents(@Query("id") leagueId:String): Call<EventResponse>
 
     @GET("lookupteam.php")
-    fun getTeamById(@Query("id") leagueId:String): Call<TeamResponse>
+    fun getTeamById(@Query("id") teamId:String): Call<TeamResponse>
 
     @GET("lookupevent.php")
     fun getEventById(@Query("id") eventId:String): Call<EventResponse>

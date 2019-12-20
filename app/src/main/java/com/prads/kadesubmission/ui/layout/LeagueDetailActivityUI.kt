@@ -33,12 +33,6 @@ class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
                         id = R.id.title
                         textAlignment = View.TEXT_ALIGNMENT_CENTER
                         padding = dip(16)
-                        text = "LEAGUE INI"
-                    }
-                    textView {
-                        id = R.id.title
-                        textAlignment = View.TEXT_ALIGNMENT_CENTER
-                        padding = dip(16)
                         text = "Description Description Description Description Description Description Description Description Description "
                     }
                     tabLayout {
@@ -46,6 +40,7 @@ class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
                         backgroundColor = colorAttr(R.attr.colorPrimary)
                     }.lparams(width = matchParent)
                 }.lparams(width = matchParent)
+
                 viewPager {
                     id = R.id.view_pager
                 }.lparams(width = matchParent, height = wrapContent) {

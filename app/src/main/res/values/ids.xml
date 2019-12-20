@@ -29,6 +29,13 @@
     <item name="item_event_logo_away" type="id"/>
     <item name="item_event_name_away" type="id"/>
     <item name="item_event_card" type="id"/>
+    <item name="event_detail_home_logo" type="id"/>
+    <item name="event_detail_away_logo" type="id"/>
+    <item name="event_detail_home_name" type="id"/>
+    <item name="event_detail_away_name" type="id"/>
+    <item name="event_detail_divider" type="id"/>
+    <item name="event_detail_home_score" type="id"/>
+    <item name="event_detail_away_score" type="id"/>
 
 
 

@@ -12,11 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.EventDetailActivity"></activity>
         <activity
             android:name=".ui.tabs.LeagueDetailActivity"
-            android:label="@string/title_activity_league_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ui.LeagueDetailActivityOld" />
+            android:label="@string/title_activity_league_detail" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

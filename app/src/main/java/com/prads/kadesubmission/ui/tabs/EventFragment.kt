@@ -1,6 +1,8 @@
 package com.prads.kadesubmission.ui.tabs
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,10 +16,13 @@ import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.Event
 import com.prads.kadesubmission.data.LeagueDummy
 import com.prads.kadesubmission.ui.EventAdapter
+import com.prads.kadesubmission.ui.EventDetailActivity
 import dagger.android.support.DaggerFragment
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.UI
+import org.jetbrains.anko.support.v4.startActivity
+import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
 
 /**
@@ -72,12 +77,12 @@ class EventFragment : DaggerFragment() {
         })
 
         eventAdapter = EventAdapter {
-            TODO()
-//            Intent(this, LeagueDetailActivity::class.java).run {
-//                this.putExtra("TAG_LEAGUE", it)
-//                toast("kamu memilih " + it.name)
-//                startActivity(this)
-//            }
+            Intent(this.context,EventDetailActivity::class.java).run {
+                this.putExtra("TAG_EVENT", it)
+                Log.d("---Team", it.toString())
+                toast("kamu memilih " + it.strEvent)
+                startActivity(this)
+            }
         }
 
         rvListEvent = rvEvent!!
