@@ -36,6 +36,44 @@
     <item name="event_detail_divider" type="id"/>
     <item name="event_detail_home_score" type="id"/>
     <item name="event_detail_away_score" type="id"/>
+    <item name="tv_event_detail_defenses_away" type="id"/>
+    <item name="tv_event_detail_defenses_home" type="id"/>
+    <item name="tv_event_detail_defenses_label" type="id"/>
+    <item name="tv_event_detail_formation_away" type="id"/>
+    <item name="tv_event_detail_formation_home" type="id"/>
+    <item name="tv_event_detail_formation_label" type="id"/>
+    <item name="tv_event_detail_forwards_away" type="id"/>
+    <item name="tv_event_detail_forwards_home" type="id"/>
+    <item name="tv_event_detail_forwards_label" type="id"/>
+    <item name="tv_event_detail_goals_away" type="id"/>
+    <item name="tv_event_detail_goals_home" type="id"/>
+    <item name="tv_event_detail_goals_label" type="id"/>
+    <item name="tv_event_detail_keeper_away" type="id"/>
+    <item name="tv_event_detail_keeper_home" type="id"/>
+    <item name="tv_event_detail_keeper_label" type="id"/>
+    <item name="tv_event_detail_mid_away" type="id"/>
+    <item name="tv_event_detail_mid_home" type="id"/>
+    <item name="tv_event_detail_mid_label" type="id"/>
+    <item name="tv_event_detail_red_away" type="id"/>
+    <item name="tv_event_detail_red_home" type="id"/>
+    <item name="tv_event_detail_red_label" type="id"/>
+    <item name="tv_event_detail_subst_away" type="id"/>
+    <item name="tv_event_detail_subst_home" type="id"/>
+    <item name="tv_event_detail_subst_label" type="id"/>
+    <item name="tv_event_detail_yellow_away" type="id"/>
+    <item name="tv_event_detail_yellow_home" type="id"/>
+    <item name="tv_event_detail_yellow_label" type="id"/>
+    <item name="card_event_detail_defenses" type="id"/>
+    <item name="card_event_detail_formation" type="id"/>
+    <item name="card_event_detail_forwards" type="id"/>
+    <item name="card_event_detail_goals" type="id"/>
+    <item name="card_event_detail_keeper" type="id"/>
+    <item name="card_event_detail_mid" type="id"/>
+    <item name="card_event_detail_red" type="id"/>
+    <item name="card_event_detail_subst" type="id"/>
+    <item name="card_event_detail_yellow" type="id"/>
+    <item name="tv_event_detail_date" type="id"/>
+    <item name="tv_event_detail_time" type="id"/>
 
 
 
