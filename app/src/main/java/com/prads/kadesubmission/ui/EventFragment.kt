@@ -1,4 +1,4 @@
-package com.prads.kadesubmission.ui.tabs
+package com.prads.kadesubmission.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,13 +15,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.Event
 import com.prads.kadesubmission.data.LeagueDummy
-import com.prads.kadesubmission.ui.EventAdapter
-import com.prads.kadesubmission.ui.EventDetailActivity
 import dagger.android.support.DaggerFragment
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.UI
-import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 import javax.inject.Inject
 

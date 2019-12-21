@@ -1,4 +1,4 @@
-package com.prads.kadesubmission.ui.tabs
+package com.prads.kadesubmission.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

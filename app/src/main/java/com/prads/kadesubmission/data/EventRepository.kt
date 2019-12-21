@@ -44,7 +44,7 @@ class EventRepository @Inject constructor(private var service: ApiService) {
             }
             override fun onResponse(call: Call<EventResponse>, response: Response<EventResponse>) {
                 if (response.isSuccessful){
-                    if (response.body()!==null){
+                    if (response.body()?.events!==null){
                         events.addAll(response.body()!!.events)
                         liveDataEvents.postValue(events)
                     }

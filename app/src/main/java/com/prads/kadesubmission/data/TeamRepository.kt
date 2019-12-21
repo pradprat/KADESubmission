@@ -1,9 +1,7 @@
-package com.prads.kadesubmission.data.source
+package com.prads.kadesubmission.data
 
 import androidx.lifecycle.MutableLiveData
 import com.example.subm1jetpackmovieskuy.data.source.ApiService
-import com.prads.kadesubmission.data.Team
-import com.prads.kadesubmission.data.TeamResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

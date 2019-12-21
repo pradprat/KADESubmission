@@ -9,6 +9,8 @@
     <item name="detail_league_name" type="id"/>
     <item name="drawer_layout" type="id"/>
     <item name="nav_view" type="id"/>
+    <item name="iv_league_detail_poster" type="id"/>
+    <item name="tv_league_detail_description" type="id"/>
     <item name="viewpager" type="id"/>
     <item name="tabs" type="id"/>
     <item name="toolbar" type="id"/>

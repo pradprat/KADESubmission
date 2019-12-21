@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.prads.kadesubmission.ui.layout.MainActivityUI
-import com.prads.kadesubmission.ui.tabs.LeagueDetailActivity
 import dagger.android.support.DaggerAppCompatActivity
 import org.jetbrains.anko.*
 import javax.inject.Inject

@@ -4,23 +4,21 @@ import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import com.google.android.material.internal.ForegroundLinearLayout
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.ui.tabs.LeagueDetailActivity
+import com.prads.kadesubmission.ui.LeagueDetailActivity
 import org.jetbrains.anko.*
 import org.jetbrains.anko.design.*
 import org.jetbrains.anko.support.v4.viewPager
 
 class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
 
-    lateinit var ivToolbar : ImageView
     override fun createView(ui: AnkoContext<LeagueDetailActivity>): View {
         return with(ui){
             coordinatorLayout {
                 //tools:context = .ui.tabs.LeagueDetailActivity //not support attribute
                 themedAppBarLayout(R.style.AppTheme_AppBarOverlay) {
                     imageView {
-                        id = R.id.title
+                        id = R.id.iv_league_detail_poster
                         padding = dip(16)
                         imageResource = R.drawable.american_mayor_league
                         textAlignment = View.TEXT_ALIGNMENT_CENTER
@@ -30,7 +28,7 @@ class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
                         gravity = Gravity.CENTER
                     }
                     textView {
-                        id = R.id.title
+                        id = R.id.tv_league_detail_description
                         textAlignment = View.TEXT_ALIGNMENT_CENTER
                         padding = dip(16)
                         text = "Description Description Description Description Description Description Description Description Description "

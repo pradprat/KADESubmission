@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.EventDetailActivity"></activity>
         <activity
-            android:name=".ui.tabs.LeagueDetailActivity"
+            android:name=".ui.LeagueDetailActivity"
             android:label="@string/title_activity_league_detail" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>

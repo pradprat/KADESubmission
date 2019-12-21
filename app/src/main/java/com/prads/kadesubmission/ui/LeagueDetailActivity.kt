@@ -1,20 +1,16 @@
-package com.prads.kadesubmission.ui.tabs
+package com.prads.kadesubmission.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import android.widget.TextView
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.Glide
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.data.League
 import com.prads.kadesubmission.data.LeagueDummy
-import com.prads.kadesubmission.ui.LeagueViewModel
 import com.prads.kadesubmission.ui.layout.LeagueDetailActivityUI
 import dagger.android.support.DaggerAppCompatActivity
 import org.jetbrains.anko.setContentView
@@ -37,12 +33,20 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
         if (league.id != null) {
             leagueViewModel.loadLeagueById(league.id).observe(this, Observer {
                 //                LOAD ALL
-//                Log.d("---",it.toString())
+                supportActionBar?.title = it.strLeague
+                Glide.with(this).load(it.strLogo).into(findViewById(R.id.iv_league_detail_poster))
+                findViewById<TextView>(R.id.tv_league_detail_description).text = it.strDescriptionEN
+
+                Log.d("---",it.toString())
             })
         }
 
 
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager, league )
+        val sectionsPagerAdapter = SectionsPagerAdapter(
+            this,
+            supportFragmentManager,
+            league
+        )
         val viewPager: ViewPager = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
 
