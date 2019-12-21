@@ -435,7 +435,7 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                         }.lparams(width = matchParent) {
                             endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
                             startToStart = ConstraintLayout.LayoutParams.PARENT_ID
-                            topToBottom = R.id.card_event_detail_keeper
+                            topToBottom = R.id.card_event_detail_defenses
                             margin = dip(8)
                         }
                         cardView {
