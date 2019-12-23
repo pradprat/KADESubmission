@@ -1,5 +1,6 @@
 package com.prads.kadesubmission.ui.layout
 
+import android.graphics.Insets.add
 import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
@@ -15,7 +16,6 @@ class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
     override fun createView(ui: AnkoContext<LeagueDetailActivity>): View {
         return with(ui){
             coordinatorLayout {
-                //tools:context = .ui.tabs.LeagueDetailActivity //not support attribute
                 themedAppBarLayout(R.style.AppTheme_AppBarOverlay) {
                     imageView {
                         id = R.id.iv_league_detail_poster

@@ -24,5 +24,5 @@ interface ApiService {
     fun getEventById(@Query("id") eventId:String): Call<EventResponse>
 
     @GET("searchevents.php")
-    fun getEventByName(@Query("e") eventName:String): Call<EventResponse>
+    fun getSearchEvent(@Query("e") eventName:String): Call<EventResponse>
 }

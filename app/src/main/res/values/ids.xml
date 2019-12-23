@@ -76,6 +76,7 @@
     <item name="card_event_detail_yellow" type="id"/>
     <item name="tv_event_detail_date" type="id"/>
     <item name="tv_event_detail_time" type="id"/>
+    <item name="rv_list_search_events" type="id"/>
 
 
 

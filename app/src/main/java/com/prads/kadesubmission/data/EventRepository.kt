@@ -1,6 +1,7 @@
 package com.prads.kadesubmission.data
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.subm1jetpackmovieskuy.data.source.ApiService
 import retrofit2.Call
@@ -50,6 +51,27 @@ class EventRepository @Inject constructor(private var service: ApiService) {
                     }
                 }
             }
+        })
+        return liveDataEvents
+    }
+
+    fun getSearchEvents(query:String): MutableLiveData<List<Event>>{
+        var liveDataEvents = MutableLiveData<List<Event>>()
+        var events = ArrayList<Event>()
+        service.getSearchEvent(query).enqueue(object : Callback<EventResponse> {
+            override fun onFailure(call: Call<EventResponse>, t: Throwable) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onResponse(call: Call<EventResponse>, response: Response<EventResponse>) {
+                if (response.isSuccessful){
+                    if (response.body()?.events!==null){
+                        events.addAll(response.body()!!.events)
+                        liveDataEvents.postValue(events)
+                    }
+                }
+            }
+
         })
         return liveDataEvents
     }
