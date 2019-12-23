@@ -1,6 +1,7 @@
 package com.example.subm1jetpackmovieskuy.data.source
 
 import com.prads.kadesubmission.data.EventResponse
+import com.prads.kadesubmission.data.EventSearchResponse
 import com.prads.kadesubmission.data.LeagueResponse
 import com.prads.kadesubmission.data.TeamResponse
 import retrofit2.Call
@@ -24,5 +25,5 @@ interface ApiService {
     fun getEventById(@Query("id") eventId:String): Call<EventResponse>
 
     @GET("searchevents.php")
-    fun getSearchEvent(@Query("e") eventName:String): Call<EventResponse>
+    fun getSearchEvent(@Query("e") eventName:String): Call<EventSearchResponse>
 }

@@ -66,7 +66,6 @@ class EventFragment : DaggerFragment() {
                 }.lparams(width = matchParent)
             }
         }.view
-        val textView: TextView = root.findViewById(R.id.section_label)
         eventViewModel.loadEvents(league.id).observe(this.viewLifecycleOwner, Observer<List<Event>> {
 //            textView.text = it
 //            Log.d("---",it.toString())

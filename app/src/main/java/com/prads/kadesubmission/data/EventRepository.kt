@@ -56,18 +56,19 @@ class EventRepository @Inject constructor(private var service: ApiService) {
     }
 
     fun getSearchEvents(query:String): MutableLiveData<List<Event>>{
-        var liveDataEvents = MutableLiveData<List<Event>>()
-        var events = ArrayList<Event>()
-        service.getSearchEvent(query).enqueue(object : Callback<EventResponse> {
-            override fun onFailure(call: Call<EventResponse>, t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val liveDataEvents = MutableLiveData<List<Event>>()
+        val events = ArrayList<Event>()
+        service.getSearchEvent(query).enqueue(object : Callback<EventSearchResponse> {
+            override fun onFailure(call: Call<EventSearchResponse>, t: Throwable) {
             }
-
-            override fun onResponse(call: Call<EventResponse>, response: Response<EventResponse>) {
+            override fun onResponse(call: Call<EventSearchResponse>, response: Response<EventSearchResponse>) {
                 if (response.isSuccessful){
-                    if (response.body()?.events!==null){
-                        events.addAll(response.body()!!.events)
-                        liveDataEvents.postValue(events)
+                    if (response.body()?.event!==null){
+                        events.addAll(response.body()!!.event)
+                        val eventsFiltered = events.filter {
+                            it.strSport == "Soccer"
+                        }
+                        liveDataEvents.postValue(eventsFiltered)
                     }
                 }
             }
