@@ -65,6 +65,7 @@ dependencies {
     implementation "org.jetbrains.anko:anko-cardview-v7:$anko_version"
     implementation "org.jetbrains.anko:anko-support-v4:$anko_version"
     implementation "org.jetbrains.anko:anko-constraint-layout:$anko_version"
+    implementation "org.jetbrains.anko:anko-sqlite:$anko_version"
 
     //glide
     def glide_version = '4.10.0'

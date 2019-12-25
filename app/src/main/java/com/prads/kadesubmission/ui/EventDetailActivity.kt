@@ -1,9 +1,13 @@
 package com.prads.kadesubmission.ui
 
+import android.database.sqlite.SQLiteConstraintException
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -11,8 +15,15 @@ import com.bumptech.glide.Glide
 import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.Event
 import com.prads.kadesubmission.data.LeagueDummy
+import com.prads.kadesubmission.data.source.local.EventFavorite
+import com.prads.kadesubmission.data.source.local.database
 import com.prads.kadesubmission.ui.layout.EventDetailActivityUI
 import dagger.android.support.DaggerAppCompatActivity
+import org.jetbrains.anko.db.classParser
+import org.jetbrains.anko.db.delete
+import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.db.select
+import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.setContentView
 import javax.inject.Inject
 
@@ -23,11 +34,15 @@ class EventDetailActivity : DaggerAppCompatActivity() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var teamViewModel: TeamViewModel
 
+    var isFavorite = false
+
+    lateinit var event:Event
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         EventDetailActivityUI().setContentView(this)
 
-        var event : Event = intent.getParcelableExtra("TAG_EVENT")
+        event = intent.getParcelableExtra("TAG_EVENT")
 
         Log.d("---",event.toString())
 
@@ -72,5 +87,81 @@ class EventDetailActivity : DaggerAppCompatActivity() {
             })
         }
 
+        event.idEvent?.let { favoriteState(it) }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.event_detail_menu, menu)
+        if (menu != null) {
+            setFavorite(menu.findItem(R.id.event_detail_favorite))
+        }
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.event_detail_favorite){
+            if (isFavorite){
+                event.idEvent?.let {
+                    removeFromFavorite(it)
+                    isFavorite=false
+                    setFavorite(item)
+                }
+            }else{
+                event.idEvent?.let {
+                    addToFavorite(it)
+                    isFavorite=true
+                    setFavorite(item)
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun favoriteState(eventId:String){
+        database.use {
+            val result = select(EventFavorite.TABLE)
+                .whereArgs("(EVENT_ID = {id})",
+                    "id" to eventId)
+            val favorite = result.parseList(classParser<EventFavorite>())
+            if (favorite.isNotEmpty()) isFavorite = true
+        }
+    }
+
+    private fun addToFavorite(eventId:String){
+        try {
+            database.use {
+                insert(EventFavorite.TABLE,
+                    EventFavorite.EVENT_ID to eventId)
+            }
+            Log.d("---database",eventId+" success")
+//            swipeRefresh.snackbar("Added to favorite").show()
+        } catch (e: SQLiteConstraintException){
+            Log.d("---database",e.localizedMessage)
+
+//            swipeRefresh.snackbar(e.localizedMessage).show()
+        }
+    }
+
+    private fun removeFromFavorite(eventId:String){
+        try {
+            database.use {
+                delete(EventFavorite.TABLE, "(EVENT_ID = {id})",
+                    "id" to eventId)
+            }
+            Log.d("---database",eventId+" success")
+
+//            swipeRefresh.snackbar("Removed to favorite").show()
+        } catch (e: SQLiteConstraintException){
+            Log.d("---database",e.localizedMessage)
+//            swipeRefresh.snackbar(e.localizedMessage).show()
+        }
+    }
+
+    private fun setFavorite(menuItem: MenuItem) {
+        if (isFavorite)
+            menuItem.icon = ContextCompat.getDrawable(this, R.drawable.ic_favorite)
+        else
+            menuItem.icon = ContextCompat.getDrawable(this, R.drawable.ic_favorite_border)
     }
 }
