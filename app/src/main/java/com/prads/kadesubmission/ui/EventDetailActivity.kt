@@ -123,7 +123,7 @@ class EventDetailActivity : DaggerAppCompatActivity() {
             val result = select(EventFavorite.TABLE)
                 .whereArgs("(idEvent = {id})",
                     "id" to eventId)
-            val favorite = result.parseList(classParser<EventFavorite>())
+            val favorite = result.parseList(classParser<Event>())
             if (favorite.isNotEmpty()) isFavorite = true
         }
     }

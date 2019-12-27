@@ -2,11 +2,13 @@ package com.prads.kadesubmission.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.prads.kadesubmission.R
 import com.prads.kadesubmission.ui.layout.MainActivityUI
 import dagger.android.support.DaggerAppCompatActivity
 import org.jetbrains.anko.*
@@ -54,6 +56,12 @@ class MainActivity : DaggerAppCompatActivity() , AnkoLogger{
         }
 
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
 

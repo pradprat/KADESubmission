@@ -4,7 +4,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import org.jetbrains.anko.db.*
 
-class DatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "FavoriteEvent.db", null, 1) {
+class DatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "FavoriteEvent.db", null, 2) {
     companion object {
         private var instance: DatabaseHelper? = null
 
@@ -20,7 +20,6 @@ class DatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "FavoriteEvent
     override fun onCreate(db: SQLiteDatabase) {
         // Here you create tables
         db.createTable(EventFavorite.TABLE, true,
-            EventFavorite.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
             EventFavorite.dateEvent to TEXT,
             EventFavorite.dateEventLocal to TEXT,
             EventFavorite.idAwayTeam to TEXT,
