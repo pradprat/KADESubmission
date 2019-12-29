@@ -8,10 +8,11 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.data.LeagueDummy
+import com.prads.kadesubmission.data.model.LeagueDummy
 import com.prads.kadesubmission.ui.layout.LeagueItemUI
 import kotlinx.android.extensions.LayoutContainer
-import org.jetbrains.anko.*
+import org.jetbrains.anko.AnkoContext
+import org.jetbrains.anko.find
 
 class LeagueAdapter (private val listener: (LeagueDummy) -> Unit) : RecyclerView.Adapter<LeagueAdapter.LeagueViewHolder>(){
 

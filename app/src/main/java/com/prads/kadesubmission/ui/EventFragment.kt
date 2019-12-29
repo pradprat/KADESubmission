@@ -6,20 +6,21 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.data.Event
-import com.prads.kadesubmission.data.LeagueDummy
+import com.prads.kadesubmission.data.model.Event
+import com.prads.kadesubmission.data.model.LeagueDummy
 import dagger.android.support.DaggerFragment
-import org.jetbrains.anko.*
+import org.jetbrains.anko.linearLayout
+import org.jetbrains.anko.matchParent
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.UI
 import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.textView
 import javax.inject.Inject
 
 /**
@@ -56,12 +57,12 @@ class EventFragment : DaggerFragment() {
         var rvEvent: RecyclerView? = null
         val root = UI {
 
-            linearLayout() {
+            linearLayout {
                 id = R.id.constraintLayout
                 textView {
                     id = R.id.section_label
                 }
-                rvEvent = recyclerView(){
+                rvEvent = recyclerView {
                     id = R.id.rv_list_events
                 }.lparams(width = matchParent)
             }

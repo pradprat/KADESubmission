@@ -2,13 +2,11 @@ package com.prads.kadesubmission.ui
 
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.data.Event
+import com.prads.kadesubmission.data.model.Event
 import com.prads.kadesubmission.ui.EventAdapter.ViewHolder
 import com.prads.kadesubmission.ui.layout.EventItemUI
 import kotlinx.android.extensions.LayoutContainer

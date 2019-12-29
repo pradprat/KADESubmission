@@ -1,4 +1,4 @@
-package com.prads.kadesubmission.data
+package com.prads.kadesubmission.data.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

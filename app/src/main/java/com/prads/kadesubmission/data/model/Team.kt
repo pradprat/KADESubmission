@@ -1,4 +1,4 @@
-package com.prads.kadesubmission.data
+package com.prads.kadesubmission.data.model
 
 data class Team(
     val idLeague: String,

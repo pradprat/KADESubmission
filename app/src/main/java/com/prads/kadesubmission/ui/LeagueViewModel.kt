@@ -2,10 +2,9 @@ package com.prads.kadesubmission.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.prads.kadesubmission.data.League
 import com.prads.kadesubmission.data.LeagueRepository
-import com.prads.kadesubmission.data.LeagueDummy
-import javax.inject.Inject
+import com.prads.kadesubmission.data.model.League
+import com.prads.kadesubmission.data.model.LeagueDummy
 
 class LeagueViewModel constructor(private val leagueRepository: LeagueRepository) : ViewModel() {
 

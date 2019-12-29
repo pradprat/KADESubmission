@@ -1,9 +1,9 @@
 package com.example.subm1jetpackmovieskuy.data.source
 
-import com.prads.kadesubmission.data.EventResponse
-import com.prads.kadesubmission.data.EventSearchResponse
-import com.prads.kadesubmission.data.LeagueResponse
-import com.prads.kadesubmission.data.TeamResponse
+import com.prads.kadesubmission.data.model.EventSearchResponse
+import com.prads.kadesubmission.data.source.remote.responses.EventResponse
+import com.prads.kadesubmission.data.source.remote.responses.LeagueResponse
+import com.prads.kadesubmission.data.source.remote.responses.TeamResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

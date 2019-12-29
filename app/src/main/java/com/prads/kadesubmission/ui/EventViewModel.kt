@@ -3,8 +3,8 @@ package com.prads.kadesubmission.ui
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.prads.kadesubmission.data.Event
 import com.prads.kadesubmission.data.EventRepository
+import com.prads.kadesubmission.data.model.Event
 
 class EventViewModel constructor(private val eventRepository: EventRepository) : ViewModel() {
 
@@ -20,4 +20,7 @@ class EventViewModel constructor(private val eventRepository: EventRepository) :
     fun searchEvents(query:String) : MutableLiveData<List<Event>> = eventRepository.getSearchEvents(query)
 
     fun favoriteEvents(context: Context) : MutableLiveData<List<Event>> = eventRepository.getFavoriteEvents(context)
+
+    fun isFavoriteEvent(context: Context, eventId: String): MutableLiveData<Boolean> =
+        eventRepository.getIsFavoriteEvent(context, eventId)
 }

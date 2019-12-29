@@ -1,26 +1,26 @@
 package com.prads.kadesubmission.ui
 
+import android.app.SearchManager
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.widget.SearchView
 import android.widget.TextView
-import com.google.android.material.tabs.TabLayout
-import androidx.viewpager.widget.ViewPager
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
-import com.prads.kadesubmission.data.LeagueDummy
+import com.google.android.material.tabs.TabLayout
+import com.prads.kadesubmission.R
+import com.prads.kadesubmission.data.model.LeagueDummy
 import com.prads.kadesubmission.ui.layout.LeagueDetailActivityUI
 import dagger.android.support.DaggerAppCompatActivity
 import org.jetbrains.anko.setContentView
 import javax.inject.Inject
-import android.app.SearchManager
-import android.content.Context
-import android.content.Intent
-import android.widget.SearchView
-import android.widget.Toast
-import com.prads.kadesubmission.R
 
 
 class LeagueDetailActivity : DaggerAppCompatActivity() {

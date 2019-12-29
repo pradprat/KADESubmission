@@ -1,9 +1,10 @@
 package com.prads.kadesubmission.data
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.subm1jetpackmovieskuy.data.source.ApiService
-import com.prads.kadesubmission.data.LeagueDummy
+import com.prads.kadesubmission.data.model.League
+import com.prads.kadesubmission.data.model.LeagueDummy
+import com.prads.kadesubmission.data.source.remote.responses.LeagueResponse
 import com.prads.kadesubmission.utils.DummyData
 import retrofit2.Call
 import retrofit2.Callback
