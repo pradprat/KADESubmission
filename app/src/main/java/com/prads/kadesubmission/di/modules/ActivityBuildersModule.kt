@@ -1,6 +1,7 @@
 package com.prads.kadesubmission.di.modules
 
-import com.prads.kadesubmission.SearchEventActivity
+import com.prads.kadesubmission.ui.FavoriteEventActivity
+import com.prads.kadesubmission.ui.SearchEventActivity
 import com.prads.kadesubmission.ui.EventDetailActivity
 import com.prads.kadesubmission.ui.MainActivity
 import com.prads.kadesubmission.ui.LeagueDetailActivity
@@ -25,5 +26,8 @@ abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     internal abstract fun contributeSearchEventActivity(): SearchEventActivity
+
+    @ContributesAndroidInjector
+    internal abstract fun contributeFavoriteEventActivity(): FavoriteEventActivity
 
 }

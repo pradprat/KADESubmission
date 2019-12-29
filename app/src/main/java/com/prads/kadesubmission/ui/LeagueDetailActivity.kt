@@ -15,20 +15,12 @@ import com.prads.kadesubmission.ui.layout.LeagueDetailActivityUI
 import dagger.android.support.DaggerAppCompatActivity
 import org.jetbrains.anko.setContentView
 import javax.inject.Inject
-import android.R.menu
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
-import android.view.MenuInflater
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.widget.SearchView
 import android.widget.Toast
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.SearchEventActivity
-import org.jetbrains.anko.searchView
-import org.jetbrains.anko.support.v4.toast
 
 
 class LeagueDetailActivity : DaggerAppCompatActivity() {
@@ -93,7 +85,8 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
                 searchView.clearFocus()
                 Toast.makeText(applicationContext,query,Toast.LENGTH_SHORT).show()
 
-                Intent(applicationContext,SearchEventActivity::class.java).run {
+                Intent(applicationContext,
+                    SearchEventActivity::class.java).run {
                     putExtra("TAG_LEAGUE_SEARCH",query)
                     startActivity(this)
                 }

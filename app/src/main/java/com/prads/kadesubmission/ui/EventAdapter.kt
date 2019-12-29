@@ -18,13 +18,22 @@ import org.jetbrains.anko.find
 class EventAdapter (private val listener: (Event) -> (Unit)):
     RecyclerView.Adapter<ViewHolder>() {
 
-    private val events = mutableListOf<Event>()
+    private var events = mutableListOf<Event>()
 
     fun addData(teams:List<Event>){
         teams.let{
             this.events.addAll(it)
         }
         notifyDataSetChanged()
+    }
+
+    fun setData(teams:List<Event>){
+        this.events.clear()
+        this.events.addAll(teams)
+        notifyDataSetChanged()
+    }
+    fun clearData(){
+        this.events.clear()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

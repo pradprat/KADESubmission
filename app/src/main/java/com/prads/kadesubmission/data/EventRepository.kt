@@ -1,14 +1,19 @@
 package com.prads.kadesubmission.data
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.subm1jetpackmovieskuy.data.source.ApiService
+import com.prads.kadesubmission.data.source.local.EventFavorite
+import com.prads.kadesubmission.data.source.local.database
+import org.jetbrains.anko.db.classParser
+import org.jetbrains.anko.db.select
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
-
+import com.prads.kadesubmission.data.source.local.database
 
 class EventRepository @Inject constructor(private var service: ApiService) {
 
@@ -74,6 +79,18 @@ class EventRepository @Inject constructor(private var service: ApiService) {
             }
 
         })
+        return liveDataEvents
+    }
+
+    fun getFavoriteEvents(context: Context): MutableLiveData<List<Event>>{
+        val liveDataEvents = MutableLiveData<List<Event>>()
+        val events = ArrayList<Event>()
+        context.database.use {
+            val result = select(EventFavorite.TABLE)
+            val favorite = result.parseList(classParser<Event>())
+            events.addAll(favorite)
+            liveDataEvents.value = events
+        }
         return liveDataEvents
     }
 }

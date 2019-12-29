@@ -12,8 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchEventActivity"></activity>
+        <activity android:name=".ui.SearchEventActivity"></activity>
         <activity android:name=".ui.EventDetailActivity" />
+        <activity android:name=".ui.FavoriteEventActivity" />
         <activity
             android:name=".ui.LeagueDetailActivity"
             android:label="@string/title_activity_league_detail" />

@@ -1,14 +1,11 @@
-package com.prads.kadesubmission
+package com.prads.kadesubmission.ui
 
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
 import android.util.Log
 import android.view.Menu
-import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -16,12 +13,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.prads.kadesubmission.data.Event
-import com.prads.kadesubmission.ui.*
+import com.prads.kadesubmission.R
 import com.prads.kadesubmission.ui.layout.SearchEventActivityUI
 import dagger.android.support.DaggerAppCompatActivity
 import org.jetbrains.anko.setContentView
-import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.toast
 import javax.inject.Inject
 
@@ -91,7 +86,8 @@ class SearchEventActivity : DaggerAppCompatActivity() {
                 searchView.clearFocus()
                 Toast.makeText(applicationContext,query,Toast.LENGTH_SHORT).show()
 
-                Intent(applicationContext,SearchEventActivity::class.java).run {
+                Intent(applicationContext,
+                    SearchEventActivity::class.java).run {
                     putExtra("TAG_LEAGUE_SEARCH",query)
                     startActivity(this)
                 }

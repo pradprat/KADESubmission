@@ -3,6 +3,7 @@ package com.prads.kadesubmission.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -62,6 +63,15 @@ class MainActivity : DaggerAppCompatActivity() , AnkoLogger{
         val inflater = menuInflater
         inflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.main_list_favorite){
+            Intent(applicationContext, FavoriteEventActivity::class.java).run {
+                startActivity(this)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 
