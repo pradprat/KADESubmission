@@ -23,4 +23,10 @@ class EventViewModel constructor(private val eventRepository: EventRepository) :
 
     fun isFavoriteEvent(context: Context, eventId: String): MutableLiveData<Boolean> =
         eventRepository.getIsFavoriteEvent(context, eventId)
+
+    fun addFavoriteEvent(context: Context, event: Event): MutableLiveData<Boolean> =
+        eventRepository.setAddFavoriteEvent(context, event)
+
+    fun deleteFavoriteEvent(context: Context, event: Event): MutableLiveData<Boolean> =
+        eventRepository.setDeleteFavoriteEvent(context, event)
 }

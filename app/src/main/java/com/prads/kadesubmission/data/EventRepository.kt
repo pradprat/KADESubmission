@@ -1,6 +1,7 @@
 package com.prads.kadesubmission.data
 
 import android.content.Context
+import android.database.sqlite.SQLiteConstraintException
 import androidx.lifecycle.MutableLiveData
 import com.example.subm1jetpackmovieskuy.data.source.ApiService
 import com.prads.kadesubmission.data.model.Event
@@ -9,6 +10,8 @@ import com.prads.kadesubmission.data.source.local.EventFavorite
 import com.prads.kadesubmission.data.source.local.database
 import com.prads.kadesubmission.data.source.remote.responses.EventResponse
 import org.jetbrains.anko.db.classParser
+import org.jetbrains.anko.db.delete
+import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import retrofit2.Call
 import retrofit2.Callback
@@ -104,6 +107,96 @@ class EventRepository @Inject constructor(private var service: ApiService) {
                 )
             val favorite = result.parseList(classParser<Event>())
             liveDatastatus.value = favorite.isNotEmpty()
+        }
+        return liveDatastatus
+    }
+
+    fun setAddFavoriteEvent(context: Context, event: Event): MutableLiveData<Boolean> {
+        val liveDatastatus = MutableLiveData<Boolean>()
+        try {
+            context.database.use {
+                insert(
+                    EventFavorite.TABLE,
+                    EventFavorite.dateEvent to event.dateEvent,
+                    EventFavorite.dateEventLocal to event.dateEventLocal,
+                    EventFavorite.idAwayTeam to event.idAwayTeam,
+                    EventFavorite.idEvent to event.idEvent,
+                    EventFavorite.idHomeTeam to event.idHomeTeam,
+                    EventFavorite.idLeague to event.idLeague,
+                    EventFavorite.idSoccerXML to event.idSoccerXML,
+                    EventFavorite.intAwayScore to event.intAwayScore,
+                    EventFavorite.intAwayShots to event.intAwayShots,
+                    EventFavorite.intHomeScore to event.intHomeScore,
+                    EventFavorite.intHomeShots to event.intHomeShots,
+                    EventFavorite.intRound to event.intRound,
+                    EventFavorite.intSpectators to event.intSpectators,
+                    EventFavorite.strAwayFormation to event.strAwayFormation,
+                    EventFavorite.strAwayGoalDetails to event.strAwayGoalDetails,
+                    EventFavorite.strAwayLineupDefense to event.strAwayLineupDefense,
+                    EventFavorite.strAwayLineupForward to event.strAwayLineupForward,
+                    EventFavorite.strAwayLineupGoalkeeper to event.strAwayLineupGoalkeeper,
+                    EventFavorite.strAwayLineupMidfield to event.strAwayLineupMidfield,
+                    EventFavorite.strAwayLineupSubstitutes to event.strAwayLineupSubstitutes,
+                    EventFavorite.strAwayRedCards to event.strAwayRedCards,
+                    EventFavorite.strAwayTeam to event.strAwayTeam,
+                    EventFavorite.strAwayYellowCards to event.strAwayYellowCards,
+                    EventFavorite.strBanner to event.strBanner,
+                    EventFavorite.strCircuit to event.strCircuit,
+                    EventFavorite.strCity to event.strCity,
+                    EventFavorite.strCountry to event.strCountry,
+                    EventFavorite.strDate to event.strDate,
+                    EventFavorite.strDescriptionEN to event.strDescriptionEN,
+                    EventFavorite.strEvent to event.strEvent,
+                    EventFavorite.strEventAlternate to event.strEventAlternate,
+                    EventFavorite.strFanart to event.strFanart,
+                    EventFavorite.strFilename to event.strFilename,
+                    EventFavorite.strHomeFormation to event.strHomeFormation,
+                    EventFavorite.strHomeGoalDetails to event.strHomeGoalDetails,
+                    EventFavorite.strHomeLineupDefense to event.strHomeLineupDefense,
+                    EventFavorite.strHomeLineupForward to event.strHomeLineupForward,
+                    EventFavorite.strHomeLineupGoalkeeper to event.strHomeLineupGoalkeeper,
+                    EventFavorite.strHomeLineupMidfield to event.strHomeLineupMidfield,
+                    EventFavorite.strHomeLineupSubstitutes to event.strHomeLineupSubstitutes,
+                    EventFavorite.strHomeRedCards to event.strHomeRedCards,
+                    EventFavorite.strHomeTeam to event.strHomeTeam,
+                    EventFavorite.strHomeYellowCards to event.strHomeYellowCards,
+                    EventFavorite.strLeague to event.strLeague,
+                    EventFavorite.strLocked to event.strLocked,
+                    EventFavorite.strMap to event.strMap,
+                    EventFavorite.strPoster to event.strPoster,
+                    EventFavorite.strResult to event.strResult,
+                    EventFavorite.strSeason to event.strSeason,
+                    EventFavorite.strSport to event.strSport,
+                    EventFavorite.strTVStation to event.strTVStation,
+                    EventFavorite.strThumb to event.strThumb,
+                    EventFavorite.strTime to event.strTime,
+                    EventFavorite.strTimeLocal to event.strTimeLocal,
+                    EventFavorite.strTweet1 to event.strTweet1,
+                    EventFavorite.strTweet2 to event.strTweet2,
+                    EventFavorite.strTweet3 to event.strTweet3,
+                    EventFavorite.strVideo to event.strVideo
+                )
+            }
+            liveDatastatus.value = true
+        } catch (e: SQLiteConstraintException) {
+            liveDatastatus.value = false
+        }
+        return liveDatastatus
+    }
+
+    fun setDeleteFavoriteEvent(context: Context, event: Event): MutableLiveData<Boolean> {
+        val liveDatastatus = MutableLiveData<Boolean>()
+        val idEvent = "" + event.idEvent
+        try {
+            context.database.use {
+                delete(
+                    EventFavorite.TABLE, "(idEvent = {id})",
+                    "id" to idEvent
+                )
+            }
+            liveDatastatus.value = true
+        } catch (e: SQLiteConstraintException) {
+            liveDatastatus.value = false
         }
         return liveDatastatus
     }
