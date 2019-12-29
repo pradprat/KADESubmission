@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.model.Event
 import com.prads.kadesubmission.data.model.LeagueDummy
+import com.prads.kadesubmission.ui.adapter.EventAdapter
+import com.prads.kadesubmission.ui.viewmodel.EventViewModel
 import dagger.android.support.DaggerFragment
 import org.jetbrains.anko.linearLayout
 import org.jetbrains.anko.matchParent
@@ -74,7 +76,7 @@ class EventFragment : DaggerFragment() {
         })
 
         eventAdapter = EventAdapter {
-            Intent(this.context,EventDetailActivity::class.java).run {
+            Intent(this.context, EventDetailActivity::class.java).run {
                 this.putExtra("TAG_EVENT", it)
                 Log.d("---Team", it.toString())
                 toast("kamu memilih " + it.strEvent)

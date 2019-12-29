@@ -10,9 +10,14 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.prads.kadesubmission.R
+import com.prads.kadesubmission.ui.adapter.LeagueAdapter
 import com.prads.kadesubmission.ui.layout.MainActivityUI
+import com.prads.kadesubmission.ui.viewmodel.LeagueViewModel
 import dagger.android.support.DaggerAppCompatActivity
-import org.jetbrains.anko.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
+import org.jetbrains.anko.setContentView
+import org.jetbrains.anko.toast
 import javax.inject.Inject
 
 class MainActivity : DaggerAppCompatActivity() , AnkoLogger{

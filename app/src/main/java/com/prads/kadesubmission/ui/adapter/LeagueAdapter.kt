@@ -1,4 +1,4 @@
-package com.prads.kadesubmission.ui
+package com.prads.kadesubmission.ui.adapter
 
 import android.view.View
 import android.view.ViewGroup

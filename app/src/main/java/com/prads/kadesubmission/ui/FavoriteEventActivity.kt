@@ -9,7 +9,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.prads.kadesubmission.R
+import com.prads.kadesubmission.ui.adapter.EventAdapter
 import com.prads.kadesubmission.ui.layout.FavoriteEventActivityUI
+import com.prads.kadesubmission.ui.viewmodel.EventViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import org.jetbrains.anko.setContentView
 import org.jetbrains.anko.toast

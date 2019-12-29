@@ -1,13 +1,13 @@
 package com.prads.kadesubmission.di.modules
 
 import androidx.lifecycle.ViewModel
-import com.prads.kadesubmission.data.LeagueRepository
 import com.prads.kadesubmission.data.EventRepository
+import com.prads.kadesubmission.data.LeagueRepository
 import com.prads.kadesubmission.data.TeamRepository
-import com.prads.kadesubmission.ui.LeagueViewModel
 import com.prads.kadesubmission.di.ViewModelKey
-import com.prads.kadesubmission.ui.EventViewModel
-import com.prads.kadesubmission.ui.TeamViewModel
+import com.prads.kadesubmission.ui.viewmodel.EventViewModel
+import com.prads.kadesubmission.ui.viewmodel.LeagueViewModel
+import com.prads.kadesubmission.ui.viewmodel.TeamViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap

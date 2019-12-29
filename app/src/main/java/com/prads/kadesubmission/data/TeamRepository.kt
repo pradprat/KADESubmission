@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.subm1jetpackmovieskuy.data.source.ApiService
 import com.prads.kadesubmission.data.model.Team
 import com.prads.kadesubmission.data.source.remote.responses.TeamResponse
+import com.prads.kadesubmission.utils.EspressoIdlingResource
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -12,6 +13,7 @@ import javax.inject.Inject
 class TeamRepository @Inject constructor(private var service: ApiService){
 
     fun getTeam(team_id:String): MutableLiveData<Team> {
+        EspressoIdlingResource.increment()
         var liveDataTeam = MutableLiveData<Team>()
         var teams = ArrayList<Team>()
 
@@ -23,6 +25,7 @@ class TeamRepository @Inject constructor(private var service: ApiService){
                     if (response.body()!=null){
                         teams.addAll(response.body()!!.teams)
                         liveDataTeam.postValue(teams.first())
+                        EspressoIdlingResource.decrement()
                     }
                 }
             }

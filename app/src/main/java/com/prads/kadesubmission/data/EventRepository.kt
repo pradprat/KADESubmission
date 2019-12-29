@@ -9,6 +9,7 @@ import com.prads.kadesubmission.data.model.EventSearchResponse
 import com.prads.kadesubmission.data.source.local.EventFavorite
 import com.prads.kadesubmission.data.source.local.database
 import com.prads.kadesubmission.data.source.remote.responses.EventResponse
+import com.prads.kadesubmission.utils.EspressoIdlingResource
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
@@ -29,6 +30,7 @@ class EventRepository @Inject constructor(private var service: ApiService) {
     }
 
     fun getAllPastEvents(league_id:String): MutableLiveData<List<Event>> {
+        EspressoIdlingResource.increment()
         var liveDataEvents = MutableLiveData<List<Event>>()
         var events = ArrayList<Event>()
         service.getPastEvents(league_id).enqueue(object : Callback<EventResponse> {
@@ -39,6 +41,7 @@ class EventRepository @Inject constructor(private var service: ApiService) {
                     if (response.body()!==null){
                         events.addAll(response.body()!!.events)
                         liveDataEvents.postValue(events)
+                        EspressoIdlingResource.decrement()
                     }
                 }
             }
@@ -46,6 +49,7 @@ class EventRepository @Inject constructor(private var service: ApiService) {
         return liveDataEvents
     }
     fun getAllNextEvents(league_id:String): MutableLiveData<List<Event>>{
+        EspressoIdlingResource.increment()
         var liveDataEvents = MutableLiveData<List<Event>>()
         var events = ArrayList<Event>()
         service.getNextEvents(league_id).enqueue(object : Callback<EventResponse> {
@@ -56,6 +60,7 @@ class EventRepository @Inject constructor(private var service: ApiService) {
                     if (response.body()?.events!==null){
                         events.addAll(response.body()!!.events)
                         liveDataEvents.postValue(events)
+                        EspressoIdlingResource.decrement()
                     }
                 }
             }
@@ -64,6 +69,7 @@ class EventRepository @Inject constructor(private var service: ApiService) {
     }
 
     fun getSearchEvents(query:String): MutableLiveData<List<Event>>{
+        EspressoIdlingResource.increment()
         val liveDataEvents = MutableLiveData<List<Event>>()
         val events = ArrayList<Event>()
         service.getSearchEvent(query).enqueue(object : Callback<EventSearchResponse> {
@@ -77,6 +83,7 @@ class EventRepository @Inject constructor(private var service: ApiService) {
                             it.strSport == "Soccer"
                         }
                         liveDataEvents.postValue(eventsFiltered)
+                        EspressoIdlingResource.decrement()
                     }
                 }
             }
@@ -86,6 +93,7 @@ class EventRepository @Inject constructor(private var service: ApiService) {
     }
 
     fun getFavoriteEvents(context: Context): MutableLiveData<List<Event>>{
+        EspressoIdlingResource.increment()
         val liveDataEvents = MutableLiveData<List<Event>>()
         val events = ArrayList<Event>()
         context.database.use {
@@ -93,11 +101,13 @@ class EventRepository @Inject constructor(private var service: ApiService) {
             val favorite = result.parseList(classParser<Event>())
             events.addAll(favorite)
             liveDataEvents.value = events
+            EspressoIdlingResource.decrement()
         }
         return liveDataEvents
     }
 
     fun getIsFavoriteEvent(context: Context, eventId: String): MutableLiveData<Boolean> {
+        EspressoIdlingResource.increment()
         val liveDatastatus = MutableLiveData<Boolean>()
         context.database.use {
             val result = select(EventFavorite.TABLE)
@@ -107,11 +117,13 @@ class EventRepository @Inject constructor(private var service: ApiService) {
                 )
             val favorite = result.parseList(classParser<Event>())
             liveDatastatus.value = favorite.isNotEmpty()
+            EspressoIdlingResource.decrement()
         }
         return liveDatastatus
     }
 
     fun setAddFavoriteEvent(context: Context, event: Event): MutableLiveData<Boolean> {
+        EspressoIdlingResource.increment()
         val liveDatastatus = MutableLiveData<Boolean>()
         try {
             context.database.use {
@@ -178,13 +190,16 @@ class EventRepository @Inject constructor(private var service: ApiService) {
                 )
             }
             liveDatastatus.value = true
+            EspressoIdlingResource.decrement()
         } catch (e: SQLiteConstraintException) {
             liveDatastatus.value = false
+            EspressoIdlingResource.decrement()
         }
         return liveDatastatus
     }
 
     fun setDeleteFavoriteEvent(context: Context, event: Event): MutableLiveData<Boolean> {
+        EspressoIdlingResource.increment()
         val liveDatastatus = MutableLiveData<Boolean>()
         val idEvent = "" + event.idEvent
         try {
@@ -195,8 +210,10 @@ class EventRepository @Inject constructor(private var service: ApiService) {
                 )
             }
             liveDatastatus.value = true
+            EspressoIdlingResource.decrement()
         } catch (e: SQLiteConstraintException) {
             liveDatastatus.value = false
+            EspressoIdlingResource.decrement()
         }
         return liveDatastatus
     }

@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide
 import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.model.Event
 import com.prads.kadesubmission.ui.layout.EventDetailActivityUI
+import com.prads.kadesubmission.ui.viewmodel.EventViewModel
+import com.prads.kadesubmission.ui.viewmodel.TeamViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import org.jetbrains.anko.setContentView
 import javax.inject.Inject

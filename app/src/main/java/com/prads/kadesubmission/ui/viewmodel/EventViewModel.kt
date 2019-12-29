@@ -1,4 +1,4 @@
-package com.prads.kadesubmission.ui
+package com.prads.kadesubmission.ui.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData

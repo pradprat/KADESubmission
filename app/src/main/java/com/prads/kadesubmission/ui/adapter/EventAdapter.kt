@@ -1,4 +1,4 @@
-package com.prads.kadesubmission.ui
+package com.prads.kadesubmission.ui.adapter
 
 import android.view.View
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.model.Event
-import com.prads.kadesubmission.ui.EventAdapter.ViewHolder
+import com.prads.kadesubmission.ui.adapter.EventAdapter.ViewHolder
 import com.prads.kadesubmission.ui.layout.EventItemUI
 import kotlinx.android.extensions.LayoutContainer
 import org.jetbrains.anko.AnkoContext

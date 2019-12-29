@@ -17,7 +17,9 @@ import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.model.LeagueDummy
+import com.prads.kadesubmission.ui.adapter.SectionsPagerAdapter
 import com.prads.kadesubmission.ui.layout.LeagueDetailActivityUI
+import com.prads.kadesubmission.ui.viewmodel.LeagueViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import org.jetbrains.anko.setContentView
 import javax.inject.Inject
@@ -53,11 +55,12 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
         }
 
 
-        val sectionsPagerAdapter = SectionsPagerAdapter(
-            this,
-            supportFragmentManager,
-            league
-        )
+        val sectionsPagerAdapter =
+            SectionsPagerAdapter(
+                this,
+                supportFragmentManager,
+                league
+            )
         val viewPager: ViewPager = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
 

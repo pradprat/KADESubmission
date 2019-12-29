@@ -6,6 +6,7 @@ import com.prads.kadesubmission.data.model.League
 import com.prads.kadesubmission.data.model.LeagueDummy
 import com.prads.kadesubmission.data.source.remote.responses.LeagueResponse
 import com.prads.kadesubmission.utils.DummyData
+import com.prads.kadesubmission.utils.EspressoIdlingResource
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,6 +23,7 @@ class LeagueRepository @Inject constructor(
     }
 
     fun getLeague(id:String):MutableLiveData<League>{
+        EspressoIdlingResource.increment()
         var league = MutableLiveData<League>()
         service.getLeagueById(id).enqueue(object : Callback<LeagueResponse>{
             override fun onFailure(call: Call<LeagueResponse>, t: Throwable) {
@@ -30,6 +32,7 @@ class LeagueRepository @Inject constructor(
                 if (response.isSuccessful){
                     if (response.body()!==null){
                         league.postValue(response.body()!!.leagues.get(0))
+                        EspressoIdlingResource.decrement()
                     }
                 }
             }
