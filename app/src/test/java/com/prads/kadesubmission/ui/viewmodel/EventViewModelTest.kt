@@ -38,6 +38,12 @@ class EventViewModelTest {
 
     @Test
     fun loadNextEvents() {
+//        setting index untuk Next event yaitu 0
+//        mendapatkan dummy data
+//        membuat live data untuk dummy data
+//        isi dummy data pada live data
+//        saat loadEvents, return live data dummy yang sudah dibuat
+//        lalu cek onChange pada observer
         eventViewModel.setIndex(0)
         val fakeEvent = EventDummy().getDummyNextEvents()
         val events = MutableLiveData<List<Event>>()
@@ -51,6 +57,12 @@ class EventViewModelTest {
 
     @Test
     fun loadPastEvents() {
+//        setting index untuk Past event yaitu 1
+//        mendapatkan dummy data
+//        membuat live data untuk dummy data
+//        isi dummy data pada live data
+//        saat loadEvents, return live data dummy yang sudah dibuat
+//        lalu cek onChange pada observer
         eventViewModel.setIndex(1)
         val fakeEvent = EventDummy().getDummyPastEvents()
         val events = MutableLiveData<List<Event>>()
@@ -64,7 +76,11 @@ class EventViewModelTest {
 
     @Test
     fun searchEvents() {
-        eventViewModel.setIndex(1)
+//        mendapatkan dummy data
+//        membuat live data untuk dummy data
+//        isi dummy data pada live data
+//        saat searchEvents, return live data dummy yang sudah dibuat
+//        lalu cek onChange pada observer
         val fakeEvent = EventDummy().getDummySearchEvents()
         val events = MutableLiveData<List<Event>>()
         events.value = fakeEvent

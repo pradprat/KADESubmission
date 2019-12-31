@@ -34,6 +34,11 @@ class TeamViewModelTest {
 
     @Test
     fun loadTeamById() {
+//        mendapatkan dummy data
+//        membuat live data untuk dummy data
+//        isi dummy data pada live data
+//        saat loadTeamById, return live data dummy yang sudah dibuat
+//        lalu cek onChange pada observer
         val fakeTeam = TeamDummy().getDummyTeams()
         val team = MutableLiveData<Team>()
         team.value = fakeTeam

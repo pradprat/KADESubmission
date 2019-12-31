@@ -38,6 +38,11 @@ class LeagueViewModelTest {
 
     @Test
     fun loadLeagues() {
+//        mendapatkan dummy data
+//        membuat live data untuk dummy data
+//        isi dummy data pada live data
+//        saat loadLeagues, return live data dummy yang sudah dibuat
+//        lalu cek onChange pada observer
         val fakeLeagues = DummyData().getLeagues()
         val leagues = MutableLiveData<List<LeagueLocal>>()
         leagues.value = fakeLeagues
@@ -50,6 +55,11 @@ class LeagueViewModelTest {
 
     @Test
     fun loadLeagueById() {
+//        mendapatkan dummy data
+//        membuat live data untuk dummy data
+//        isi dummy data pada live data
+//        saat loadLeagueById, return live data dummy yang sudah dibuat
+//        lalu cek onChange pada observer
         val fakeLeague = LeagueDummy().getDummyLeague()
         val league = MutableLiveData<League>()
         league.value = fakeLeague
