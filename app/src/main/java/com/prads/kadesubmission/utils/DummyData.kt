@@ -1,15 +1,15 @@
 package com.prads.kadesubmission.utils
 
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.data.model.LeagueDummy
+import com.prads.kadesubmission.data.model.LeagueLocal
 import javax.inject.Inject
 
 class DummyData @Inject constructor(){
-    fun getLeagues(): List<LeagueDummy>? {
-        val leagues=mutableListOf<LeagueDummy>()
+    fun getLeagues(): List<LeagueLocal>? {
+        val leagues = mutableListOf<LeagueLocal>()
 
         leagues.add(
-            LeagueDummy(
+            LeagueLocal(
                 "English Premier League",
                 R.drawable.english_premier_league,
                 "4328",
@@ -27,7 +27,7 @@ class DummyData @Inject constructor(){
 
 
         leagues.add(
-            LeagueDummy(
+            LeagueLocal(
                 "French Ligue 1",
                 R.drawable.french_ligue_1,
                 "4334",
@@ -42,7 +42,7 @@ class DummyData @Inject constructor(){
 
 
         leagues.add(
-            LeagueDummy(
+            LeagueLocal(
                 "German Bundesliga",
                 R.drawable.german_bundesliga,
                 "4331",
@@ -57,7 +57,7 @@ class DummyData @Inject constructor(){
 
 
         leagues.add(
-            LeagueDummy(
+            LeagueLocal(
                 "Italian Serie A",
                 R.drawable.italian_serie_a,
                 "4332",
@@ -71,7 +71,7 @@ class DummyData @Inject constructor(){
 
 
         leagues.add(
-            LeagueDummy(
+            LeagueLocal(
                 "Spanish La Liga",
                 R.drawable.spanish_la_liga,
                 "4335",
@@ -87,7 +87,7 @@ class DummyData @Inject constructor(){
 
 
         leagues.add(
-            LeagueDummy(
+            LeagueLocal(
                 "American Mayor League",
                 R.drawable.american_mayor_league,
                 "4346",
@@ -102,7 +102,7 @@ class DummyData @Inject constructor(){
 
 
         leagues.add(
-            LeagueDummy(
+            LeagueLocal(
                 "Protugeuese Premiera Liga",
                 R.drawable.portugeuese_premiera_liga,
                 "4344",
@@ -115,7 +115,7 @@ class DummyData @Inject constructor(){
 
 
         leagues.add(
-            LeagueDummy(
+            LeagueLocal(
                 "Australian A League",
                 R.drawable.australian_a_league,
                 "4356",
@@ -130,7 +130,7 @@ class DummyData @Inject constructor(){
 
 
         leagues.add(
-            LeagueDummy(
+            LeagueLocal(
                 "Scotish Premier League",
                 R.drawable.scotish_premier_league,
                 "4330",
@@ -141,7 +141,7 @@ class DummyData @Inject constructor(){
 
 
         leagues.add(
-            LeagueDummy(
+            LeagueLocal(
                 "English League 1",
                 R.drawable.english_league_1,
                 "4396",

@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.data.model.LeagueDummy
+import com.prads.kadesubmission.data.model.LeagueLocal
 import com.prads.kadesubmission.ui.EventFragment
 
 private val TAB_TITLES = arrayOf(
@@ -17,7 +17,11 @@ private val TAB_TITLES = arrayOf(
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
-class SectionsPagerAdapter(private val context: Context, fm: FragmentManager, private val league: LeagueDummy) :
+class SectionsPagerAdapter(
+    private val context: Context,
+    fm: FragmentManager,
+    private val league: LeagueLocal
+) :
     FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {

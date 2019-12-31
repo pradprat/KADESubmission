@@ -3,7 +3,7 @@ package com.prads.kadesubmission.data
 import androidx.lifecycle.MutableLiveData
 import com.example.subm1jetpackmovieskuy.data.source.ApiService
 import com.prads.kadesubmission.data.model.League
-import com.prads.kadesubmission.data.model.LeagueDummy
+import com.prads.kadesubmission.data.model.LeagueLocal
 import com.prads.kadesubmission.data.source.remote.responses.LeagueResponse
 import com.prads.kadesubmission.utils.DummyData
 import com.prads.kadesubmission.utils.EspressoIdlingResource
@@ -16,8 +16,8 @@ class LeagueRepository @Inject constructor(
     var dataDummyData: DummyData,
     var service: ApiService
 ){
-    fun getAllLeagues():MutableLiveData<List<LeagueDummy>>{
-        val liveDataLeagues = MutableLiveData<List<LeagueDummy>>()
+    fun getAllLeagues(): MutableLiveData<List<LeagueLocal>> {
+        val liveDataLeagues = MutableLiveData<List<LeagueLocal>>()
         liveDataLeagues.value = dataDummyData.getLeagues()
         return liveDataLeagues
     }

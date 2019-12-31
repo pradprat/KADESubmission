@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.model.Event
-import com.prads.kadesubmission.data.model.LeagueDummy
+import com.prads.kadesubmission.data.model.LeagueLocal
 import com.prads.kadesubmission.ui.adapter.EventAdapter
 import com.prads.kadesubmission.ui.viewmodel.EventViewModel
 import dagger.android.support.DaggerFragment
@@ -35,7 +35,7 @@ class EventFragment : DaggerFragment() {
 
     private lateinit var eventViewModel: EventViewModel
 
-    private lateinit var league: LeagueDummy
+    private lateinit var league: LeagueLocal
 
     lateinit var rvListEvent: RecyclerView
 
@@ -44,7 +44,7 @@ class EventFragment : DaggerFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        league = arguments?.getParcelable<LeagueDummy>(ARG_LEAGUE)!!
+        league = arguments?.getParcelable<LeagueLocal>(ARG_LEAGUE)!!
 
         eventViewModel = ViewModelProviders.of(this,viewModelFactory).get(EventViewModel::class.java).apply {
             setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
@@ -100,7 +100,7 @@ class EventFragment : DaggerFragment() {
         private const val ARG_SECTION_NUMBER = "section_number"
         private const val ARG_LEAGUE = "ARG_LEAGUE"
         @JvmStatic
-        fun newInstance(sectionNumber: Int,league: LeagueDummy): EventFragment {
+        fun newInstance(sectionNumber: Int, league: LeagueLocal): EventFragment {
             return EventFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_SECTION_NUMBER, sectionNumber)

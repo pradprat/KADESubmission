@@ -16,7 +16,7 @@ import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.data.model.LeagueDummy
+import com.prads.kadesubmission.data.model.LeagueLocal
 import com.prads.kadesubmission.ui.adapter.SectionsPagerAdapter
 import com.prads.kadesubmission.ui.layout.LeagueDetailActivityUI
 import com.prads.kadesubmission.ui.viewmodel.LeagueViewModel
@@ -36,7 +36,7 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
         LeagueDetailActivityUI().setContentView(this)
 
 
-        var league : LeagueDummy = intent.getParcelableExtra("TAG_LEAGUE")
+        var league: LeagueLocal = intent.getParcelableExtra("TAG_LEAGUE")
 
         leagueViewModel = ViewModelProviders.of(this,viewModelFactory).get(LeagueViewModel::class.java)
 

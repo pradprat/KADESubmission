@@ -8,18 +8,19 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.data.model.LeagueDummy
+import com.prads.kadesubmission.data.model.LeagueLocal
 import com.prads.kadesubmission.ui.layout.LeagueItemUI
 import kotlinx.android.extensions.LayoutContainer
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.find
 
-class LeagueAdapter (private val listener: (LeagueDummy) -> Unit) : RecyclerView.Adapter<LeagueAdapter.LeagueViewHolder>(){
+class LeagueAdapter(private val listener: (LeagueLocal) -> Unit) :
+    RecyclerView.Adapter<LeagueAdapter.LeagueViewHolder>() {
 
-    private val leagues = mutableListOf<LeagueDummy>()
+    private val leagues = mutableListOf<LeagueLocal>()
 
-    fun addData(leagueDummies:List<LeagueDummy>){
-        leagueDummies.let{
+    fun addData(leagueLocals: List<LeagueLocal>) {
+        leagueLocals.let {
             this.leagues.addAll(it)
         }
         notifyDataSetChanged()
@@ -43,7 +44,7 @@ class LeagueAdapter (private val listener: (LeagueDummy) -> Unit) : RecyclerView
         private  val leagueLogo: ImageView = containerView.find(R.id.item_league_logo)
         private  val leagueLogoDetail: ImageView = containerView.find(R.id.item_league_logo)
 
-        fun bindItem(item: LeagueDummy, listener: (LeagueDummy) -> Unit) {
+        fun bindItem(item: LeagueLocal, listener: (LeagueLocal) -> Unit) {
 
             Glide.with(itemView.context)
                 .load(item.logo)
