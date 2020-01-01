@@ -9,6 +9,7 @@ import com.prads.kadesubmission.R
 import org.jetbrains.anko.*
 import org.jetbrains.anko.cardview.v7.cardView
 import org.jetbrains.anko.constraint.layout.constraintLayout
+import java.awt.font.TextAttribute
 
 /**
  * Generate with Plugin
@@ -85,7 +86,10 @@ class EventItemUI : AnkoComponent<ViewGroup> {
                             text = "portugal"
                             textSize = sp(6).toFloat()
                             typeface = Typeface.DEFAULT_BOLD
+                            textAlignment = View.TEXT_ALIGNMENT_CENTER
                         }.lparams {
+                            height = wrapContent
+                            width = 0
                             bottomToBottom = R.id.item_score_home //not support attribute
                             endToStart = R.id.item_score_home //not support attribute
                             startToStart = PARENT_ID //not support attribute
@@ -96,7 +100,10 @@ class EventItemUI : AnkoComponent<ViewGroup> {
                             text = "England"
                             textSize = sp(6).toFloat()
                             typeface = Typeface.DEFAULT_BOLD
+                            textAlignment = View.TEXT_ALIGNMENT_CENTER
                         }.lparams {
+                            height = wrapContent
+                            width = 0
                             bottomToBottom = R.id.item_score_away //not support attribute
                             endToEnd = PARENT_ID //not support attribute
                             startToEnd = R.id.item_score_away //not support attribute

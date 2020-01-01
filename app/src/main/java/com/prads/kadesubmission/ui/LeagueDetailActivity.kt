@@ -30,13 +30,13 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var leagueViewModel: LeagueViewModel
-
+    lateinit var league:LeagueLocal
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         LeagueDetailActivityUI().setContentView(this)
 
 
-        var league: LeagueLocal = intent.getParcelableExtra("TAG_LEAGUE")
+        league = intent.getParcelableExtra("TAG_LEAGUE")
 
         leagueViewModel = ViewModelProviders.of(this,viewModelFactory).get(LeagueViewModel::class.java)
 
@@ -59,13 +59,13 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
             SectionsPagerAdapter(
                 this,
                 supportFragmentManager,
-                league
+                this.league
             )
-        val viewPager: ViewPager = findViewById(R.id.view_pager)
+        val viewPager: ViewPager = this.findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
 
 
-        val tabs: TabLayout = findViewById(R.id.tabs)
+        val tabs: TabLayout = this.findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
 
 
@@ -91,6 +91,7 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
                 Intent(applicationContext,
                     SearchEventActivity::class.java).run {
                     putExtra("TAG_LEAGUE_SEARCH",query)
+                    putExtra("TAG_LEAGUE_INFO",league)
                     startActivity(this)
                 }
 

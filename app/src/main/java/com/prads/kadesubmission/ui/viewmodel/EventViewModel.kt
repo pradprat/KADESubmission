@@ -17,7 +17,7 @@ class EventViewModel constructor(private val eventRepository: EventRepository) :
         _index.value = index
     }
 
-    fun searchEvents(query:String) : MutableLiveData<List<Event>> = eventRepository.getSearchEvents(query)
+    fun searchEvents(query:String,league_id: String) : MutableLiveData<List<Event>> = eventRepository.getSearchEvents(query,league_id)
 
     fun favoriteEvents(context: Context) : MutableLiveData<List<Event>> = eventRepository.getFavoriteEvents(context)
 

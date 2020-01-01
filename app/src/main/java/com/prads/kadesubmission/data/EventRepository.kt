@@ -68,7 +68,7 @@ class EventRepository @Inject constructor(private var service: ApiService) {
         return liveDataEvents
     }
 
-    fun getSearchEvents(query:String): MutableLiveData<List<Event>>{
+    fun getSearchEvents(query:String,league_id: String): MutableLiveData<List<Event>>{
         EspressoIdlingResource.increment()
         val liveDataEvents = MutableLiveData<List<Event>>()
         val events = ArrayList<Event>()
@@ -80,7 +80,8 @@ class EventRepository @Inject constructor(private var service: ApiService) {
                     if (response.body()?.event!==null){
                         events.addAll(response.body()!!.event)
                         val eventsFiltered = events.filter {
-                            it.strSport == "Soccer"
+                            it.strSport == "Soccer" &&
+                            it.idLeague == league_id
                         }
                         liveDataEvents.postValue(eventsFiltered)
                         EspressoIdlingResource.decrement()

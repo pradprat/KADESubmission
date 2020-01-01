@@ -189,6 +189,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_START
                                     text = "69':Own  Jonjo Shelvey\n61': Adam Lallana\n51': Adam Lallana\n33': Alberto Moreno;"
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToStart = R.id.tv_event_detail_goals_label
                                     startToStart = ConstraintLayout.LayoutParams.PARENT_ID
@@ -200,6 +202,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_END
                                     text = "61': Adam Lallana\n51': Adam Lallana\n33': Alberto Moreno;"
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
                                     startToEnd = R.id.tv_event_detail_goals_label
@@ -234,6 +238,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "49': Martin Skrtel;"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_START
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToStart = R.id.tv_event_detail_yellow_label
                                     startToStart = ConstraintLayout.LayoutParams.PARENT_ID
@@ -245,6 +251,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "61': Adam Lallana\n51': Adam Lallana\n"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_END
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
                                     startToEnd = R.id.tv_event_detail_yellow_label
@@ -279,6 +287,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "49': Martin Skrtel;"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_START
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToStart = R.id.tv_event_detail_red_label
                                     startToStart = ConstraintLayout.LayoutParams.PARENT_ID
@@ -290,6 +300,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "61': Adam Lallana\n51': Adam Lallana\n"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_END
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
                                     startToEnd = R.id.tv_event_detail_red_label
@@ -324,6 +336,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "49': Martin Skrtel;"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_START
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToStart = R.id.tv_event_detail_keeper_label
                                     startToStart = ConstraintLayout.LayoutParams.PARENT_ID
@@ -335,6 +349,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "61': Adam Lallana\n51': Adam Lallana\n"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_END
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
                                     startToEnd = R.id.tv_event_detail_keeper_label
@@ -369,6 +385,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "49': Martin Skrtel;"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_START
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToStart = R.id.tv_event_detail_defenses_label
                                     startToStart = ConstraintLayout.LayoutParams.PARENT_ID
@@ -380,6 +398,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "61': Adam Lallana\n51': Adam Lallana\n"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_END
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
                                     startToEnd = R.id.tv_event_detail_defenses_label
@@ -414,6 +434,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "49': Martin Skrtel;"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_START
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToStart = R.id.tv_event_detail_mid_label
                                     startToStart = ConstraintLayout.LayoutParams.PARENT_ID
@@ -425,6 +447,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "61': Adam Lallana\n51': Adam Lallana\n"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_END
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
                                     startToEnd = R.id.tv_event_detail_mid_label
@@ -459,6 +483,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "49': Martin Skrtel;"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_START
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToStart = R.id.tv_event_detail_forwards_label
                                     startToStart = ConstraintLayout.LayoutParams.PARENT_ID
@@ -470,6 +496,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "61': Adam Lallana\n51': Adam Lallana\n"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_END
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
                                     startToEnd = R.id.tv_event_detail_forwards_label
@@ -504,6 +532,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "49': Martin Skrtel;"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_START
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToStart = R.id.tv_event_detail_subst_label
                                     startToStart = ConstraintLayout.LayoutParams.PARENT_ID
@@ -515,6 +545,8 @@ class EventDetailActivityUI : AnkoComponent<EventDetailActivity> {
                                     text = "61': Adam Lallana\n51': Adam Lallana\n"
                                     textAlignment = View.TEXT_ALIGNMENT_VIEW_END
                                 }.lparams() {
+                                    height = wrapContent
+                                    width = 0
                                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                                     endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
                                     startToEnd = R.id.tv_event_detail_subst_label

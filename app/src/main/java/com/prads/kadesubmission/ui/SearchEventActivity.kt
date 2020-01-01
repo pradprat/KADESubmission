@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.prads.kadesubmission.R
+import com.prads.kadesubmission.data.model.LeagueLocal
 import com.prads.kadesubmission.ui.adapter.EventAdapter
 import com.prads.kadesubmission.ui.layout.SearchEventActivityUI
 import com.prads.kadesubmission.ui.viewmodel.EventViewModel
@@ -32,6 +33,8 @@ class SearchEventActivity : DaggerAppCompatActivity() {
 
     lateinit var eventAdapter: EventAdapter
 
+    lateinit var league:LeagueLocal
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         SearchEventActivityUI().setContentView(this)
@@ -39,6 +42,7 @@ class SearchEventActivity : DaggerAppCompatActivity() {
         supportActionBar?.title = ""
 
         val query = intent.getStringExtra("TAG_LEAGUE_SEARCH")
+        val league = intent.getParcelableExtra<LeagueLocal>("TAG_LEAGUE_INFO")
 
         eventAdapter = EventAdapter {
             Intent(applicationContext, EventDetailActivity::class.java).run {
@@ -51,8 +55,8 @@ class SearchEventActivity : DaggerAppCompatActivity() {
 
         eventViewModel = ViewModelProviders.of(this,viewModelFactory).get(EventViewModel::class.java)
 
-        eventViewModel.searchEvents(query).observe(this, Observer {
-            Log.d("---GG",it.last().idHomeTeam)
+        eventViewModel.searchEvents(query,league.id).observe(this, Observer {
+//            Log.d("---GG",it.last().idHomeTeam)
             eventAdapter.addData(it)
         })
 
@@ -91,6 +95,7 @@ class SearchEventActivity : DaggerAppCompatActivity() {
                 Intent(applicationContext,
                     SearchEventActivity::class.java).run {
                     putExtra("TAG_LEAGUE_SEARCH",query)
+                    putExtra("TAG_LEAGUE_INFO",league)
                     startActivity(this)
                 }
 
