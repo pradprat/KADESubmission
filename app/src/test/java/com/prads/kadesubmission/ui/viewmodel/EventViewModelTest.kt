@@ -84,10 +84,10 @@ class EventViewModelTest {
         val fakeEvent = EventDummy().getDummySearchEvents()
         val events = MutableLiveData<List<Event>>()
         events.value = fakeEvent
-        `when`(eventViewModel.searchEvents("chelsea"))
+        `when`(eventViewModel.searchEvents("chelsea","4328"))
             .thenReturn(events)
         val observer: Observer<List<Event>> = mock()
-        eventViewModel.searchEvents("chelsea").observeForever(observer)
+        eventViewModel.searchEvents("chelsea","4328").observeForever(observer)
         verify(observer).onChanged(events.value)
     }
 }
