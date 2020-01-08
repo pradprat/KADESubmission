@@ -31,7 +31,7 @@ class SectionsPagerAdapter(
         // Return a EventFragment (defined as a static inner class below).
         return when (position) {
             2 -> {
-                TeamFragment.newInstance()
+                TeamFragment.newInstance(league)
             }
             else -> {
                 EventFragment.newInstance(

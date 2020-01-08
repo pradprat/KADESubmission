@@ -67,6 +67,10 @@
     <item name="tv_event_detail_time" type="id"/>
     <item name="rv_list_search_events" type="id"/>
     <item name="rv_list_favorite_events" type="id"/>
+    <item name="rv_list_teams" type="id" />
+    <item name="item_team_card" type="id" />
+    <item name="item_team_logo" type="id" />
+    <item name="item_team_name" type="id" />
 
 
 

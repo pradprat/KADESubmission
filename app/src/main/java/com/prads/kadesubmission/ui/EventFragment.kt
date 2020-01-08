@@ -44,7 +44,7 @@ class EventFragment : DaggerFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        league = arguments?.getParcelable<LeagueLocal>(ARG_LEAGUE)!!
+        league = arguments?.getParcelable(ARG_LEAGUE)!!
 
         eventViewModel = ViewModelProviders.of(this,viewModelFactory).get(EventViewModel::class.java).apply {
             setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
