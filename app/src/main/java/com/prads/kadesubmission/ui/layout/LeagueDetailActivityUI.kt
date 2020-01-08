@@ -1,14 +1,14 @@
 package com.prads.kadesubmission.ui.layout
 
-import android.graphics.Insets.add
 import android.view.Gravity
 import android.view.View
-import android.widget.ImageView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.prads.kadesubmission.R
 import com.prads.kadesubmission.ui.LeagueDetailActivity
 import org.jetbrains.anko.*
-import org.jetbrains.anko.design.*
+import org.jetbrains.anko.design.coordinatorLayout
+import org.jetbrains.anko.design.tabLayout
+import org.jetbrains.anko.design.themedAppBarLayout
 import org.jetbrains.anko.support.v4.viewPager
 
 class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
@@ -20,9 +20,9 @@ class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
                     imageView {
                         id = R.id.iv_league_detail_poster
                         padding = dip(16)
-                        imageResource = R.drawable.american_mayor_league
+//                        imageResource = R.drawable.american_mayor_league
                         textAlignment = View.TEXT_ALIGNMENT_CENTER
-                    }.lparams(){
+                    }.lparams {
                         height = dip(100)
                         width = dip(100)
                         gravity = Gravity.CENTER
@@ -31,7 +31,7 @@ class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
                         id = R.id.tv_league_detail_description
                         textAlignment = View.TEXT_ALIGNMENT_CENTER
                         padding = dip(16)
-                        text = "Description Description Description Description Description Description Description Description Description "
+                        text = ""
                     }
                     tabLayout {
                         id = R.id.tabs

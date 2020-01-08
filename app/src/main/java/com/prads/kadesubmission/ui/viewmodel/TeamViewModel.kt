@@ -9,4 +9,7 @@ class TeamViewModel constructor(private val teamRepository: TeamRepository) : Vi
 
     fun loadTeamById(id:String): MutableLiveData<Team> = teamRepository.getTeam(id)
 
+    fun loadTeams(leagueId: String): MutableLiveData<List<Team>> =
+        teamRepository.getAllTeam(leagueId)
+
 }

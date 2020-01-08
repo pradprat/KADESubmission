@@ -48,7 +48,8 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
                 //                LOAD ALL
                 supportActionBar?.title = it.strLeague
                 Glide.with(this).load(it.strLogo).into(findViewById(R.id.iv_league_detail_poster))
-                findViewById<TextView>(R.id.tv_league_detail_description).text = it.strDescriptionEN
+                findViewById<TextView>(R.id.tv_league_detail_description).text =
+                    it.strDescriptionEN.substringBefore("\n")
 
                 Log.d("---",it.toString())
             })

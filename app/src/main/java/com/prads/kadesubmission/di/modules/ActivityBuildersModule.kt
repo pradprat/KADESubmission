@@ -1,11 +1,7 @@
 package com.prads.kadesubmission.di.modules
 
-import com.prads.kadesubmission.ui.FavoriteEventActivity
-import com.prads.kadesubmission.ui.SearchEventActivity
-import com.prads.kadesubmission.ui.EventDetailActivity
-import com.prads.kadesubmission.ui.MainActivity
-import com.prads.kadesubmission.ui.LeagueDetailActivity
-import com.prads.kadesubmission.ui.EventFragment
+import com.prads.kadesubmission.TeamFragment
+import com.prads.kadesubmission.ui.*
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -29,5 +25,8 @@ abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     internal abstract fun contributeFavoriteEventActivity(): FavoriteEventActivity
+
+    @ContributesAndroidInjector
+    internal abstract fun contributeTeamFragment(): TeamFragment
 
 }

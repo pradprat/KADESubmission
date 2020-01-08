@@ -32,4 +32,26 @@ class TeamRepository @Inject constructor(private var service: ApiService){
         })
         return liveDataTeam
     }
+
+    fun getAllTeam(leagueId: String): MutableLiveData<List<Team>> {
+        EspressoIdlingResource.increment()
+        var liveDataTeams = MutableLiveData<List<Team>>()
+        var teams = ArrayList<Team>()
+
+        service.getTeams(leagueId).enqueue(object : Callback<TeamResponse> {
+            override fun onFailure(call: Call<TeamResponse>, t: Throwable) {
+            }
+
+            override fun onResponse(call: Call<TeamResponse>, response: Response<TeamResponse>) {
+                if (response.isSuccessful) {
+                    if (response.body() != null) {
+                        teams.addAll(response.body()!!.teams)
+                        liveDataTeams.postValue(teams)
+                        EspressoIdlingResource.decrement()
+                    }
+                }
+            }
+        })
+        return liveDataTeams
+    }
 }

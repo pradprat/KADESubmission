@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.prads.kadesubmission.R
+import com.prads.kadesubmission.TeamFragment
 import com.prads.kadesubmission.data.model.LeagueLocal
 import com.prads.kadesubmission.ui.EventFragment
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_1,
-    R.string.tab_text_2
+    R.string.tab_text_2,
+    R.string.tab_text_3
 )
 
 /**
@@ -27,10 +29,17 @@ class SectionsPagerAdapter(
     override fun getItem(position: Int): Fragment {
         // getItem is called to instantiate the fragment for the given page.
         // Return a EventFragment (defined as a static inner class below).
-        return EventFragment.newInstance(
-            position + 1,
-            league
-        )
+        return when (position) {
+            2 -> {
+                TeamFragment.newInstance()
+            }
+            else -> {
+                EventFragment.newInstance(
+                    position + 1,
+                    league
+                )
+            }
+        }
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
@@ -39,6 +48,6 @@ class SectionsPagerAdapter(
 
     override fun getCount(): Int {
         // Show 2 total pages.
-        return 2
+        return 3
     }
 }
