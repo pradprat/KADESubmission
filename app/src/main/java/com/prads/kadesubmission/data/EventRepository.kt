@@ -5,10 +5,10 @@ import android.database.sqlite.SQLiteConstraintException
 import androidx.lifecycle.MutableLiveData
 import com.example.subm1jetpackmovieskuy.data.source.ApiService
 import com.prads.kadesubmission.data.model.Event
-import com.prads.kadesubmission.data.model.EventSearchResponse
 import com.prads.kadesubmission.data.source.local.EventFavorite
 import com.prads.kadesubmission.data.source.local.database
 import com.prads.kadesubmission.data.source.remote.responses.EventResponse
+import com.prads.kadesubmission.data.source.remote.responses.EventSearchResponse
 import com.prads.kadesubmission.utils.EspressoIdlingResource
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.delete

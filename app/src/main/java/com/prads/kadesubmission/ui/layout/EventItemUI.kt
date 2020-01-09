@@ -9,7 +9,6 @@ import com.prads.kadesubmission.R
 import org.jetbrains.anko.*
 import org.jetbrains.anko.cardview.v7.cardView
 import org.jetbrains.anko.constraint.layout.constraintLayout
-import java.awt.font.TextAttribute
 
 /**
  * Generate with Plugin
@@ -24,6 +23,8 @@ class EventItemUI : AnkoComponent<ViewGroup> {
                 lparams(width = matchParent, height = wrapContent)
                 orientation = LinearLayout.VERTICAL
                 cardView {
+                    elevation = dip(4).toFloat()
+                    radius = dip(8).toFloat()
                     lparams(width = matchParent, height = wrapContent){
                         margin = dip(8)
                     }

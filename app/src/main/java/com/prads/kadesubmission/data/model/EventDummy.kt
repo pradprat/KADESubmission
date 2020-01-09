@@ -2,8 +2,9 @@ package com.prads.kadesubmission.data.model
 
 import com.google.gson.Gson
 import com.prads.kadesubmission.data.source.remote.responses.EventResponse
+import com.prads.kadesubmission.data.source.remote.responses.EventSearchResponse
 
-class EventDummy() {
+class EventDummy {
 
 
     fun getDummyNextEvents(): List<Event> {

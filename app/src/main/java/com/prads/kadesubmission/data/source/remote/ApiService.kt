@@ -1,7 +1,8 @@
 package com.example.subm1jetpackmovieskuy.data.source
 
-import com.prads.kadesubmission.data.model.EventSearchResponse
+import com.prads.kadesubmission.data.model.ClassementResponse
 import com.prads.kadesubmission.data.source.remote.responses.EventResponse
+import com.prads.kadesubmission.data.source.remote.responses.EventSearchResponse
 import com.prads.kadesubmission.data.source.remote.responses.LeagueResponse
 import com.prads.kadesubmission.data.source.remote.responses.TeamResponse
 import retrofit2.Call
@@ -29,4 +30,7 @@ interface ApiService {
 
     @GET("searchevents.php")
     fun getSearchEvent(@Query("e") eventName:String): Call<EventSearchResponse>
+
+    @GET("lookuptable.php")
+    fun getClassement(@Query("l") leagueId: String): Call<ClassementResponse>
 }

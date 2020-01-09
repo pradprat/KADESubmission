@@ -2,6 +2,8 @@ package com.prads.kadesubmission.data
 
 import androidx.lifecycle.MutableLiveData
 import com.example.subm1jetpackmovieskuy.data.source.ApiService
+import com.prads.kadesubmission.data.model.Classement
+import com.prads.kadesubmission.data.model.ClassementResponse
 import com.prads.kadesubmission.data.model.League
 import com.prads.kadesubmission.data.model.LeagueLocal
 import com.prads.kadesubmission.data.source.remote.responses.LeagueResponse
@@ -38,5 +40,27 @@ class LeagueRepository @Inject constructor(
             }
         })
         return league
+    }
+
+    fun getClassement(leagueId: String): MutableLiveData<List<Classement>> {
+        EspressoIdlingResource.increment()
+        var classementLiveData = MutableLiveData<List<Classement>>()
+        service.getClassement(leagueId).enqueue(object : Callback<ClassementResponse> {
+            override fun onFailure(call: Call<ClassementResponse>, t: Throwable) {
+            }
+
+            override fun onResponse(
+                call: Call<ClassementResponse>,
+                response: Response<ClassementResponse>
+            ) {
+                if (response.isSuccessful) {
+                    if (response.body() !== null) {
+                        classementLiveData.postValue(response.body()!!.table)
+                        EspressoIdlingResource.decrement()
+                    }
+                }
+            }
+        })
+        return classementLiveData
     }
 }

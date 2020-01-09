@@ -17,8 +17,8 @@ class TeamItemUI : AnkoComponent<ViewGroup> {
                 orientation = LinearLayout.VERTICAL
                 cardView {
                     id = R.id.item_team_card
-                    elevation = dip(4).toFloat()
-                    //app:cardCornerRadius = 8dp //not support attribute
+                    elevation = dip(8).toFloat()
+                    radius = dip(8).toFloat()
                     linearLayout {
                         orientation = LinearLayout.VERTICAL
                         imageView {
