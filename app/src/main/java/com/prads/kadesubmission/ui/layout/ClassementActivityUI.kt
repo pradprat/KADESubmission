@@ -5,8 +5,8 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.PARENT_ID
 import androidx.recyclerview.widget.RecyclerView
-import com.prads.kadesubmission.ClassementActivity
 import com.prads.kadesubmission.R
+import com.prads.kadesubmission.ui.ClassementActivity
 import org.jetbrains.anko.*
 import org.jetbrains.anko.cardview.v7.cardView
 import org.jetbrains.anko.constraint.layout.constraintLayout

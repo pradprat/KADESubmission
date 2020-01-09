@@ -1,7 +1,5 @@
 package com.prads.kadesubmission.di.modules
 
-import com.prads.kadesubmission.ClassementActivity
-import com.prads.kadesubmission.TeamFragment
 import com.prads.kadesubmission.ui.*
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

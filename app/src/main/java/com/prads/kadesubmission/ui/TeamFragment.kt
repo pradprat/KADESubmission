@@ -1,4 +1,4 @@
-package com.prads.kadesubmission
+package com.prads.kadesubmission.ui
 
 
 import android.os.Bundle
@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.model.LeagueLocal
 import com.prads.kadesubmission.data.model.Team
 import com.prads.kadesubmission.ui.adapter.TeamAdapter
