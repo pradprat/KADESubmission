@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.widget.Button
 import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
@@ -15,12 +16,14 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
+import com.prads.kadesubmission.ClassementActivity
 import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.model.LeagueLocal
 import com.prads.kadesubmission.ui.adapter.SectionsPagerAdapter
 import com.prads.kadesubmission.ui.layout.LeagueDetailActivityUI
 import com.prads.kadesubmission.ui.viewmodel.LeagueViewModel
 import dagger.android.support.DaggerAppCompatActivity
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.setContentView
 import javax.inject.Inject
 
@@ -70,6 +73,14 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
         tabs.setupWithViewPager(viewPager)
 
 
+        this.findViewById<Button>(R.id.btn_league_detail_classement).onClick {
+            Intent(
+                applicationContext,
+                ClassementActivity::class.java
+            ).run {
+                startActivity(this)
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -71,6 +71,8 @@
     <item name="item_team_card" type="id" />
     <item name="item_team_logo" type="id" />
     <item name="item_team_name" type="id" />
+    <item name="rv_list_classement" type="id" />
+    <item name="btn_league_detail_classement" type="id" />
 
 
 
