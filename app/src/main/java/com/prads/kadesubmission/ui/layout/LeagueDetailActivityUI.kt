@@ -33,7 +33,7 @@ class LeagueDetailActivityUI : AnkoComponent<LeagueDetailActivity> {
                         padding = dip(16)
                         text = ""
                     }
-                    button("Klasemen") {
+                    button("classement") {
                         id = R.id.btn_league_detail_classement
                     }.lparams(width = matchParent) {
                         horizontalMargin = dip(16)

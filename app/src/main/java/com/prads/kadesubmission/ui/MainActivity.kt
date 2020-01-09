@@ -58,7 +58,7 @@ class MainActivity : DaggerAppCompatActivity() , AnkoLogger{
         rvListLeague.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = leagueAdapter
-            info("recyclerview created")
+//            info("recyclerview created")
         }
 
 

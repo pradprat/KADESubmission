@@ -34,6 +34,7 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var leagueViewModel: LeagueViewModel
     lateinit var league:LeagueLocal
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         LeagueDetailActivityUI().setContentView(this)
@@ -78,6 +79,7 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
                 applicationContext,
                 ClassementActivity::class.java
             ).run {
+                putExtra("TAG_CLASSEMENT", league)
                 startActivity(this)
             }
         }
