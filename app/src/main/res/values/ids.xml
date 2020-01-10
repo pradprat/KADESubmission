@@ -85,6 +85,10 @@
     <item name="tv_classement_item_draw" type="id" />
     <item name="tv_classement_item_loss" type="id" />
     <item name="tv_classement_item_total" type="id" />
+    <item name="iv_team_detail_poster" type="id" />
+    <item name="tv_team_detail_description" type="id" />
+    <item name="team_tabs" type="id" />
+    <item name="team_view_pager" type="id" />
 
 
 

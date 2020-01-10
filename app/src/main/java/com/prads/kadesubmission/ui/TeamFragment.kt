@@ -1,6 +1,7 @@
 package com.prads.kadesubmission.ui
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.prads.kadesubmission.R
+import com.prads.kadesubmission.TeamDetailActivity
 import com.prads.kadesubmission.data.model.LeagueLocal
 import com.prads.kadesubmission.data.model.Team
 import com.prads.kadesubmission.ui.adapter.TeamAdapter
@@ -73,12 +75,9 @@ class TeamFragment : DaggerFragment() {
         })
 
         teamAdapter = TeamAdapter {
-            //            Intent(this.context, TeamDetailActivity::class.java).run {
-//                this.putExtra("TAG_TEAM", it)
-//                Log.d("---Team", it.toString())
-//                toast("kamu memilih " + it.strEvent)
-//                startActivity(this)
-//            }
+            Intent(this.context, TeamDetailActivity::class.java).run {
+                startActivity(this)
+            }
         }
 
         rvListTeam = rvEvent!!

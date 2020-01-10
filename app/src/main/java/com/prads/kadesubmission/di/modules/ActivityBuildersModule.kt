@@ -1,5 +1,6 @@
 package com.prads.kadesubmission.di.modules
 
+import com.prads.kadesubmission.TeamDetailActivity
 import com.prads.kadesubmission.ui.*
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -27,6 +28,9 @@ abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     internal abstract fun contributeClassementActivity(): ClassementActivity
+
+    @ContributesAndroidInjector
+    internal abstract fun contributeTeamDetailActivity(): TeamDetailActivity
 
     @ContributesAndroidInjector
     internal abstract fun contributeTeamFragment(): TeamFragment

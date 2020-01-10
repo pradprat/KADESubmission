@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.ClassementActivity"></activity>
+        <activity android:name=".TeamDetailActivity"></activity>
+        <activity android:name=".ui.ClassementActivity" />
         <activity android:name=".ui.SearchEventActivity" />
         <activity android:name=".ui.EventDetailActivity" />
         <activity android:name=".ui.FavoriteEventActivity" />

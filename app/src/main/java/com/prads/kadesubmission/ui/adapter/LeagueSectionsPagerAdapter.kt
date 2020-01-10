@@ -14,17 +14,19 @@ private val TAB_TITLES = arrayOf(
     R.string.tab_text_2,
     R.string.tab_text_3
 )
-
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
-class SectionsPagerAdapter(
+class LeagueSectionsPagerAdapter(
     private val context: Context,
     fm: FragmentManager,
     private val league: LeagueLocal
-) :
-    FragmentPagerAdapter(fm) {
+) : FragmentPagerAdapter(fm) {
+
+    override fun getItemPosition(`object`: Any): Int {
+        return super.getItemPosition(`object`)
+    }
 
     override fun getItem(position: Int): Fragment {
         // getItem is called to instantiate the fragment for the given page.
@@ -51,3 +53,4 @@ class SectionsPagerAdapter(
         return 3
     }
 }
+
