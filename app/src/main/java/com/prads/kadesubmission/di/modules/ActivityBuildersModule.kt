@@ -35,4 +35,7 @@ abstract class ActivityBuildersModule {
     @ContributesAndroidInjector
     internal abstract fun contributeTeamFragment(): TeamFragment
 
+    @ContributesAndroidInjector
+    internal abstract fun contributeTeamDetailFragment(): TeamDetailFragment
+
 }

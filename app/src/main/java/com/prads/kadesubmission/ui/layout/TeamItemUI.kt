@@ -26,6 +26,7 @@ class TeamItemUI : AnkoComponent<ViewGroup> {
 //                            imageResource = R.drawable.spanish_la_liga
                         }.lparams(width = dip(70), height = dip(70)) {
                             gravity = Gravity.CENTER
+                            topMargin = dip(8)
                         }
                         textView {
                             id = R.id.item_team_name

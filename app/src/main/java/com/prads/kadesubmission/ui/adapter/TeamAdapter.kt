@@ -47,7 +47,7 @@ class TeamAdapter(private val listener: (Team) -> Unit) :
         fun bindItem(item: Team, listener: (Team) -> Unit) {
 
             Glide.with(itemView.context)
-                .load(item.strTeamLogo)
+                .load(item.strTeamBadge)
                 .into(teamLogo)
 
             containerView.find<TextView>(R.id.item_team_name).text = item.strTeam
