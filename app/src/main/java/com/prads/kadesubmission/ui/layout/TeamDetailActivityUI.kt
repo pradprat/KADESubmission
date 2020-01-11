@@ -4,7 +4,7 @@ import android.view.Gravity
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.TeamDetailActivity
+import com.prads.kadesubmission.ui.TeamDetailActivity
 import org.jetbrains.anko.*
 import org.jetbrains.anko.design.coordinatorLayout
 import org.jetbrains.anko.design.tabLayout

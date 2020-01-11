@@ -1,10 +1,11 @@
-package com.prads.kadesubmission
+package com.prads.kadesubmission.ui
 
 import android.os.Bundle
 import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
+import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.model.Team
 import com.prads.kadesubmission.ui.adapter.TeamSectionsPagerAdapter
 import com.prads.kadesubmission.ui.layout.TeamDetailActivityUI

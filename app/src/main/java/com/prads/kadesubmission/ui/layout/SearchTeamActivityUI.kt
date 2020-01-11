@@ -1,7 +1,7 @@
 package com.prads.kadesubmission.ui.layout
 
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.SearchTeamActivity
+import com.prads.kadesubmission.ui.SearchTeamActivity
 import org.jetbrains.anko.AnkoComponent
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.linearLayout

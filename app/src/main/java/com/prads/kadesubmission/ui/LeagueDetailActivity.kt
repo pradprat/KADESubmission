@@ -17,7 +17,6 @@ import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.SearchTeamActivity
 import com.prads.kadesubmission.data.model.LeagueLocal
 import com.prads.kadesubmission.ui.adapter.LeagueSectionsPagerAdapter
 import com.prads.kadesubmission.ui.layout.LeagueDetailActivityUI

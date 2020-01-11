@@ -1,5 +1,6 @@
 package com.prads.kadesubmission.ui.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.prads.kadesubmission.data.TeamRepository
@@ -14,5 +15,17 @@ class TeamViewModel constructor(private val teamRepository: TeamRepository) : Vi
 
     fun searchTeams(query: String, leagueId: String): MutableLiveData<List<Team>> =
         teamRepository.getSearchTeam(query, leagueId)
+
+    fun favoriteTeams(context: Context): MutableLiveData<List<Team>> =
+        teamRepository.getFavoriteTeams(context)
+
+    fun isFavoriteTeam(context: Context, teamId: String): MutableLiveData<Boolean> =
+        teamRepository.getIsFavoriteTeam(context, teamId)
+
+    fun addFavoriteTeam(context: Context, team: Team): MutableLiveData<Boolean> =
+        teamRepository.setAddFavoriteTeam(context, team)
+
+    fun deleteFavoriteTeam(context: Context, team: Team): MutableLiveData<Boolean> =
+        teamRepository.setDeleteFavoriteTeam(context, team)
 
 }

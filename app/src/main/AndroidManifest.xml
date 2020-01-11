@@ -12,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchTeamActivity"></activity>
-        <activity android:name=".TeamDetailActivity" />
+        <activity android:name=".ui.SearchTeamActivity"></activity>
+        <activity android:name=".ui.TeamDetailActivity" />
         <activity android:name=".ui.ClassementActivity" />
         <activity android:name=".ui.SearchEventActivity" />
         <activity android:name=".ui.EventDetailActivity" />
