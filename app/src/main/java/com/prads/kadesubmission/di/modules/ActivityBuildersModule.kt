@@ -1,5 +1,6 @@
 package com.prads.kadesubmission.di.modules
 
+import com.prads.kadesubmission.SearchTeamActivity
 import com.prads.kadesubmission.TeamDetailActivity
 import com.prads.kadesubmission.ui.*
 import dagger.Module
@@ -22,6 +23,9 @@ abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     internal abstract fun contributeSearchEventActivity(): SearchEventActivity
+
+    @ContributesAndroidInjector
+    internal abstract fun contributeSearchTeamActivity(): SearchTeamActivity
 
     @ContributesAndroidInjector
     internal abstract fun contributeFavoriteEventActivity(): FavoriteEventActivity

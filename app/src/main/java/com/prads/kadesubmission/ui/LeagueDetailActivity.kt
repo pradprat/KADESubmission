@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.prads.kadesubmission.R
+import com.prads.kadesubmission.SearchTeamActivity
 import com.prads.kadesubmission.data.model.LeagueLocal
 import com.prads.kadesubmission.ui.adapter.LeagueSectionsPagerAdapter
 import com.prads.kadesubmission.ui.layout.LeagueDetailActivityUI
@@ -34,6 +35,8 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
     private lateinit var leagueViewModel: LeagueViewModel
     lateinit var league:LeagueLocal
 
+    var tabPosition = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         LeagueDetailActivityUI().setContentView(this)
@@ -42,8 +45,6 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
         league = intent.getParcelableExtra("TAG_LEAGUE")
 
         leagueViewModel = ViewModelProviders.of(this,viewModelFactory).get(LeagueViewModel::class.java)
-
-
 
 
         if (league.id != null) {
@@ -71,6 +72,17 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
 
         val tabs: TabLayout = this.findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
+        tabs.setOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(p0: TabLayout.Tab?) {
+            }
+
+            override fun onTabUnselected(p0: TabLayout.Tab?) {
+            }
+
+            override fun onTabSelected(p0: TabLayout.Tab?) {
+                tabPosition = p0?.position!!
+            }
+        })
 
 
         this.findViewById<Button>(R.id.btn_league_detail_classement).onClick {
@@ -94,6 +106,17 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
 
         searchView.setSearchableInfo(manager.getSearchableInfo(componentName))
 
+        searchView.setOnSearchClickListener {
+            when (tabPosition) {
+                2 -> {
+                    searchView.queryHint = "Search Team..."
+                }
+                else -> {
+                    searchView.queryHint = "Search Events..."
+                }
+            }
+        }
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -101,13 +124,28 @@ class LeagueDetailActivity : DaggerAppCompatActivity() {
                 searchView.clearFocus()
                 Toast.makeText(applicationContext,query,Toast.LENGTH_SHORT).show()
 
-                Intent(applicationContext,
-                    SearchEventActivity::class.java).run {
-                    putExtra("TAG_LEAGUE_SEARCH",query)
-                    putExtra("TAG_LEAGUE_INFO",league)
-                    startActivity(this)
+                when (tabPosition) {
+                    2 -> {
+                        Intent(
+                            applicationContext,
+                            SearchTeamActivity::class.java
+                        ).run {
+                            putExtra("TAG_TEAM_SEARCH", query)
+                            putExtra("TAG_LEAGUE_INFO", league)
+                            startActivity(this)
+                        }
+                    }
+                    else -> {
+                        Intent(
+                            applicationContext,
+                            SearchEventActivity::class.java
+                        ).run {
+                            putExtra("TAG_LEAGUE_SEARCH", query)
+                            putExtra("TAG_LEAGUE_INFO", league)
+                            startActivity(this)
+                        }
+                    }
                 }
-
                 return true
             }
 

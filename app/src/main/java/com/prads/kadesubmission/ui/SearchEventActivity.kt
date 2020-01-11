@@ -42,7 +42,7 @@ class SearchEventActivity : DaggerAppCompatActivity() {
         supportActionBar?.title = ""
 
         val query = intent.getStringExtra("TAG_LEAGUE_SEARCH")
-        val league = intent.getParcelableExtra<LeagueLocal>("TAG_LEAGUE_INFO")
+        league = intent.getParcelableExtra<LeagueLocal>("TAG_LEAGUE_INFO")
 
         eventAdapter = EventAdapter {
             Intent(applicationContext, EventDetailActivity::class.java).run {

@@ -12,6 +12,31 @@ import javax.inject.Inject
 
 class TeamRepository @Inject constructor(private var service: ApiService){
 
+    fun getSearchTeam(query: String, leagueId: String): MutableLiveData<List<Team>> {
+        EspressoIdlingResource.increment()
+        var liveDataTeams = MutableLiveData<List<Team>>()
+        var teams = ArrayList<Team>()
+
+        service.getSearchTeams(query).enqueue(object : Callback<TeamResponse> {
+            override fun onFailure(call: Call<TeamResponse>, t: Throwable) {
+            }
+
+            override fun onResponse(call: Call<TeamResponse>, response: Response<TeamResponse>) {
+                if (response.isSuccessful) {
+                    if (response.body()?.teams !== null) {
+                        teams.addAll(response.body()!!.teams)
+                        val eventsFiltered = teams.filter {
+                            it.strSport == "Soccer" && it.idLeague == leagueId
+                        }
+                        liveDataTeams.postValue(eventsFiltered)
+                        EspressoIdlingResource.decrement()
+                    }
+                }
+            }
+        })
+        return liveDataTeams
+    }
+
     fun getTeam(team_id:String): MutableLiveData<Team> {
         EspressoIdlingResource.increment()
         var liveDataTeam = MutableLiveData<Team>()

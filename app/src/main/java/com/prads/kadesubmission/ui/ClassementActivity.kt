@@ -27,7 +27,11 @@ class ClassementActivity : DaggerAppCompatActivity() {
         super.onCreate(savedInstanceState)
         ClassementActivityUI().setContentView(this)
 
+
         league = intent.getParcelableExtra("TAG_CLASSEMENT")
+
+        supportActionBar?.title = "Classement " + league.name
+
 
         leagueViewModel =
             ViewModelProviders.of(this, viewModelFactory).get(LeagueViewModel::class.java)

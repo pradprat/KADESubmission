@@ -36,4 +36,7 @@ interface ApiService {
 
     @GET("eventsnext.php")
     fun getEventsFromTeam(@Query("id") teamId: String): Call<EventResponse>
+
+    @GET("searchteams.php")
+    fun getSearchTeams(@Query("t") query: String): Call<TeamResponse>
 }
