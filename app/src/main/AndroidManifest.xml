@@ -17,7 +17,7 @@
         <activity android:name=".ui.ClassementActivity" />
         <activity android:name=".ui.SearchEventActivity" />
         <activity android:name=".ui.EventDetailActivity" />
-        <activity android:name=".ui.FavoriteEventActivity" />
+        <activity android:name=".ui.FavoriteActivity" />
         <activity
             android:name=".ui.LeagueDetailActivity"
             android:label="@string/title_activity_league_detail" />

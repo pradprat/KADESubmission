@@ -98,6 +98,8 @@
     <item name="tv_team_detail_stadium_location" type="id" />
     <item name="tv_team_detail_stadium_desc" type="id" />
     <item name="rv_list_search_teams" type="id" />
+    <item name="favorite_tabs" type="id" />
+    <item name="favorite_view_pager" type="id" />
 
 
 

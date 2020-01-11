@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.model.Event
-import com.prads.kadesubmission.data.model.Team
 import com.prads.kadesubmission.ui.adapter.EventAdapter
 import com.prads.kadesubmission.ui.viewmodel.EventViewModel
 import dagger.android.support.DaggerFragment
@@ -28,14 +27,11 @@ import javax.inject.Inject
 /**
  * A placeholder fragment containing a simple view.
  */
-class TeamEventFragment : DaggerFragment() {
+class FavoriteEventFragment : DaggerFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-
     private lateinit var eventViewModel: EventViewModel
-
-    private lateinit var team: Team
 
     lateinit var rvListEvent: RecyclerView
 
@@ -43,8 +39,6 @@ class TeamEventFragment : DaggerFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        team = arguments?.getParcelable(ARG_TEAM)!!
 
         eventViewModel =
             ViewModelProviders.of(this, viewModelFactory).get(EventViewModel::class.java)
@@ -64,14 +58,16 @@ class TeamEventFragment : DaggerFragment() {
                     id = R.id.section_label
                 }
                 rvEvent = recyclerView {
-                    id = R.id.rv_list_events
+                    id = R.id.rv_list_favorite_events
                 }.lparams(width = matchParent)
             }
         }.view
-        eventViewModel.loadEventsFromTeam(team.idTeam!!)
-            .observe(this.viewLifecycleOwner, Observer<List<Event>> {
-                eventAdapter.addData(it)
-            })
+        this.context?.let {
+            eventViewModel.favoriteEvents(it)
+                .observe(this.viewLifecycleOwner, Observer<List<Event>> {
+                    eventAdapter.addData(it)
+                })
+        }
 
         eventAdapter = EventAdapter {
             Intent(this.context, EventDetailActivity::class.java).run {
@@ -94,12 +90,11 @@ class TeamEventFragment : DaggerFragment() {
 
     companion object {
 
-        private const val ARG_TEAM = "ARG_TEAM"
         @JvmStatic
-        fun newInstance(team: Team): TeamEventFragment {
-            return TeamEventFragment().apply {
+        fun newInstance(): FavoriteEventFragment {
+            return FavoriteEventFragment().apply {
                 arguments = Bundle().apply {
-                    putParcelable(ARG_TEAM, team)
+                    //                    putParcelable(ARG_TEAM, team)
                 }
             }
         }

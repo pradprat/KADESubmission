@@ -72,7 +72,7 @@ class MainActivity : DaggerAppCompatActivity() , AnkoLogger{
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.main_list_favorite){
-            Intent(applicationContext, FavoriteEventActivity::class.java).run {
+            Intent(applicationContext, FavoriteActivity::class.java).run {
                 startActivity(this)
             }
         }

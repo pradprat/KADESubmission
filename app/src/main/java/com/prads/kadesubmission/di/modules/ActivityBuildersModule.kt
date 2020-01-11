@@ -26,7 +26,7 @@ abstract class ActivityBuildersModule {
     internal abstract fun contributeSearchTeamActivity(): SearchTeamActivity
 
     @ContributesAndroidInjector
-    internal abstract fun contributeFavoriteEventActivity(): FavoriteEventActivity
+    internal abstract fun contributeFavoriteEventActivity(): FavoriteActivity
 
     @ContributesAndroidInjector
     internal abstract fun contributeClassementActivity(): ClassementActivity
@@ -42,5 +42,11 @@ abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector
     internal abstract fun contributeTeamDetailFragment(): TeamDetailFragment
+
+    @ContributesAndroidInjector
+    internal abstract fun contributeFavoriteEventFragment(): FavoriteEventFragment
+
+    @ContributesAndroidInjector
+    internal abstract fun contributeFavoriteTeamFragment(): FavoriteTeamFragment
 
 }
