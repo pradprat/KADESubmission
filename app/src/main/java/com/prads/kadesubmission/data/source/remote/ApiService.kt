@@ -33,4 +33,7 @@ interface ApiService {
 
     @GET("lookuptable.php")
     fun getClassement(@Query("l") leagueId: String): Call<ClassementResponse>
+
+    @GET("eventsnext.php")
+    fun getEventsFromTeam(@Query("id") teamId: String): Call<EventResponse>
 }

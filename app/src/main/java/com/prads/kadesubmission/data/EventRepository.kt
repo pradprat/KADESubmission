@@ -29,6 +29,27 @@ class EventRepository @Inject constructor(private var service: ApiService) {
         }
     }
 
+    fun getAllEventsFromTeam(teamId: String): MutableLiveData<List<Event>> {
+        EspressoIdlingResource.increment()
+        var liveDataEvents = MutableLiveData<List<Event>>()
+        var events = ArrayList<Event>()
+        service.getEventsFromTeam(teamId).enqueue(object : Callback<EventResponse> {
+            override fun onFailure(call: Call<EventResponse>, t: Throwable) {
+            }
+
+            override fun onResponse(call: Call<EventResponse>, response: Response<EventResponse>) {
+                if (response.isSuccessful) {
+                    if (response.body() !== null) {
+                        events.addAll(response.body()!!.events)
+                        liveDataEvents.postValue(events)
+                        EspressoIdlingResource.decrement()
+                    }
+                }
+            }
+        })
+        return liveDataEvents
+    }
+
     fun getAllPastEvents(league_id:String): MutableLiveData<List<Event>> {
         EspressoIdlingResource.increment()
         var liveDataEvents = MutableLiveData<List<Event>>()

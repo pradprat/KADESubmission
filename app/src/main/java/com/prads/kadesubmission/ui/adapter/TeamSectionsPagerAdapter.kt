@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.prads.kadesubmission.R
 import com.prads.kadesubmission.data.model.Team
 import com.prads.kadesubmission.ui.TeamDetailFragment
+import com.prads.kadesubmission.ui.TeamEventFragment
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_team_1,
@@ -35,7 +36,7 @@ class TeamSectionsPagerAdapter(
                 TeamDetailFragment.newInstance(team)
             }
             else -> {
-                TeamDetailFragment.newInstance(team)
+                TeamEventFragment.newInstance(team)
             }
         }
     }
@@ -46,7 +47,7 @@ class TeamSectionsPagerAdapter(
 
     override fun getCount(): Int {
         // Show 2 total pages.
-        return 1
+        return 2
     }
 }
 
