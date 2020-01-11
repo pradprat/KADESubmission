@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.prads.kadesubmission.R
-import com.prads.kadesubmission.data.model.LeagueLocal
-import com.prads.kadesubmission.ui.EventFragment
+import com.prads.kadesubmission.data.model.Team
 import com.prads.kadesubmission.ui.TeamDetailFragment
 
 private val TAB_TITLES = arrayOf(
@@ -21,7 +20,7 @@ private val TAB_TITLES = arrayOf(
 class TeamSectionsPagerAdapter(
     private val context: Context,
     fm: FragmentManager,
-    private val league: LeagueLocal
+    private val team: Team
 ) : FragmentPagerAdapter(fm) {
 
     override fun getItemPosition(`object`: Any): Int {
@@ -33,13 +32,10 @@ class TeamSectionsPagerAdapter(
         // Return a EventFragment (defined as a static inner class below).
         return when (position) {
             0 -> {
-                TeamDetailFragment.newInstance()
+                TeamDetailFragment.newInstance(team)
             }
             else -> {
-                EventFragment.newInstance(
-                    position + 1,
-                    league
-                )
+                TeamDetailFragment.newInstance(team)
             }
         }
     }
@@ -50,7 +46,7 @@ class TeamSectionsPagerAdapter(
 
     override fun getCount(): Int {
         // Show 2 total pages.
-        return 2
+        return 1
     }
 }
 

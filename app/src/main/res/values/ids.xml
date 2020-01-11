@@ -89,6 +89,14 @@
     <item name="tv_team_detail_description" type="id" />
     <item name="team_tabs" type="id" />
     <item name="team_view_pager" type="id" />
+    <item name="iv_team_detail_jersey" type="id" />
+    <item name="tv_team_detail_league" type="id" />
+    <item name="tv_team_detail_nickname" type="id" />
+    <item name="tv_team_detail_established" type="id" />
+    <item name="tv_team_detail_stadium_name" type="id" />
+    <item name="iv_team_detail_stadium_snap" type="id" />
+    <item name="tv_team_detail_stadium_location" type="id" />
+    <item name="tv_team_detail_stadium_desc" type="id" />
 
 
 

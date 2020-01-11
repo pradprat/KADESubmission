@@ -8,7 +8,6 @@ import com.google.android.material.tabs.TabLayout
 import com.prads.kadesubmission.data.model.Team
 import com.prads.kadesubmission.ui.adapter.TeamSectionsPagerAdapter
 import com.prads.kadesubmission.ui.layout.TeamDetailActivityUI
-import com.prads.kadesubmission.utils.DummyData
 import dagger.android.support.DaggerAppCompatActivity
 import org.jetbrains.anko.setContentView
 
@@ -30,7 +29,7 @@ class TeamDetailActivity : DaggerAppCompatActivity() {
             TeamSectionsPagerAdapter(
                 this,
                 supportFragmentManager,
-                DummyData().getLeagues()?.last()!!
+                team
             )
         val viewPager: ViewPager = this.findViewById(R.id.team_view_pager)
         viewPager.adapter = sectionsPagerAdapter
