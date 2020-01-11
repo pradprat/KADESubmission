@@ -7,7 +7,7 @@ import org.jetbrains.anko.db.TEXT
 import org.jetbrains.anko.db.createTable
 import org.jetbrains.anko.db.dropTable
 
-class DatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "FavoriteEvent.db", null, 2) {
+class DatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "Favorite.db", null, 1) {
     companion object {
         private var instance: DatabaseHelper? = null
 
@@ -83,7 +83,6 @@ class DatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "FavoriteEvent
             EventFavorite.strTweet3 to TEXT,
             EventFavorite.strVideo to TEXT
         )
-
         db.createTable(
             TeamFavorite.TABLE, true,
             TeamFavorite.idLeague to TEXT,
@@ -142,6 +141,7 @@ class DatabaseHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "FavoriteEvent
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         // Here you can upgrade tables, as usual
         db.dropTable(EventFavorite.TABLE, true)
+        db.dropTable(TeamFavorite.TABLE, true)
     }
 }
 

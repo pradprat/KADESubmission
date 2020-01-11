@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteConstraintException
 import androidx.lifecycle.MutableLiveData
 import com.example.subm1jetpackmovieskuy.data.source.ApiService
 import com.prads.kadesubmission.data.model.Team
-import com.prads.kadesubmission.data.source.local.EventFavorite
 import com.prads.kadesubmission.data.source.local.TeamFavorite
 import com.prads.kadesubmission.data.source.local.database
 import com.prads.kadesubmission.data.source.remote.responses.TeamResponse
@@ -194,7 +193,7 @@ class TeamRepository @Inject constructor(private var service: ApiService){
         try {
             context.database.use {
                 delete(
-                    EventFavorite.TABLE, "(idTeam = {id})",
+                    TeamFavorite.TABLE, "(idTeam = {id})",
                     "id" to idTeam
                 )
             }

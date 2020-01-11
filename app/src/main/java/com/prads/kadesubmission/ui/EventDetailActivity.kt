@@ -40,6 +40,17 @@ class EventDetailActivity : DaggerAppCompatActivity() {
         Log.d("---",event.toString())
 
         supportActionBar?.title = event.strEvent
+
+        teamViewModel = ViewModelProviders.of(this,viewModelFactory).get(TeamViewModel::class.java)
+        eventViewModel =
+            ViewModelProviders.of(this, viewModelFactory).get(EventViewModel::class.java)
+
+        event.idEvent?.let { favoriteState(it) }
+
+        bind()
+    }
+
+    fun bind() {
         findViewById<TextView>(R.id.event_detail_home_score).text = event.intHomeScore
         findViewById<TextView>(R.id.event_detail_away_score).text = event.intAwayScore
         findViewById<TextView>(R.id.event_detail_home_name).text = event.strHomeTeam
@@ -81,37 +92,31 @@ class EventDetailActivity : DaggerAppCompatActivity() {
             event.strHomeLineupSubstitutes?.replace(";", "\n")
         findViewById<TextView>(R.id.tv_event_detail_subst_away).text =
             event.strAwayLineupSubstitutes?.replace(";", "\n")
-
-
-        teamViewModel = ViewModelProviders.of(this,viewModelFactory).get(TeamViewModel::class.java)
-        eventViewModel =
-            ViewModelProviders.of(this, viewModelFactory).get(EventViewModel::class.java)
-
         event.idHomeTeam?.let {
             teamViewModel.loadTeamById(it).observe(this, Observer {
-                Glide.with(this).load(it.strTeamLogo).into(findViewById(R.id.event_detail_home_logo))
+                Glide.with(this).load(it.strTeamLogo)
+                    .into(findViewById(R.id.event_detail_home_logo))
             })
         }
         event.idAwayTeam?.let {
             teamViewModel.loadTeamById(it).observe(this, Observer {
-                Glide.with(this).load(it.strTeamLogo).into(findViewById(R.id.event_detail_away_logo))
+                Glide.with(this).load(it.strTeamLogo)
+                    .into(findViewById(R.id.event_detail_away_logo))
             })
         }
-
-        event.idEvent?.let { favoriteState(it) }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
-        inflater.inflate(R.menu.event_detail_menu, menu)
+        inflater.inflate(R.menu.favorite_menu, menu)
         if (menu != null) {
-            setFavorite(menu.findItem(R.id.event_detail_favorite))
+            setFavorite(menu.findItem(R.id.btn_favorite))
         }
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.event_detail_favorite){
+        if (item.itemId == R.id.btn_favorite) {
             if (isFavorite){
                 event.idEvent?.let {
                     deleteFromFavorite()
